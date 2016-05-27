@@ -1,0 +1,24 @@
+.DS_Store
+
+# Ignore cache
+/.sass-cache
+/.cache
+
+# Ignore development files
+/node_modules
+/bower_components
+
+# Development directories
+/docs/
+/logs/
+/reports/
+/tmp/
+
+# Ignore bundler config
+/.bundle
+
+# Media files used by the static templates
+/media/**/*
+
+# Autosaviour backups
+*-autosaviour-backup.ai
