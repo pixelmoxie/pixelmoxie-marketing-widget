@@ -1,0 +1,73 @@
+@mixin balloon-base-effects () {
+	opacity: 0;
+	pointer-events: none;
+	transition: all 0.2s ease 0.2s;
+}
+
+[data-pmw-balloon] {
+	position: relative;
+
+	&::before,
+	&::after {
+		display: block;
+		pointer-events: none;
+	}
+
+	&::after {
+		@extend %strap-typography-base;
+		@include balloon-base-effects;
+		@include to-em(font-size, $balloon-base-size + 2, $base-font-size);
+		background-color: $balloon-background-color;
+		border-radius: $global-border-radius;
+		bottom: 100%;
+		color: $balloon-text-color;
+		content: attr(data-pmw-balloon);
+		left: 50%;
+		margin-bottom: 5px + $balloon-arrow-height;
+		padding: 0.6em 0.8em;
+		position: absolute;
+		transform: translate(-50%, 10px);
+		visibility: hidden;
+		white-space: nowrap;
+		line-height: 1;
+		z-index: $z-index-1;
+	}
+
+	&::before {
+		@include svg-arrow($balloon-background-color);
+		@include balloon-base-effects;
+		bottom: 100%;
+		content: "";
+		left: 50%;
+		margin-bottom: 5px;
+		position: absolute;
+		transform-origin: top;
+		transform: translate(-50%, 10px);
+		visibility: hidden;
+		z-index: $z-index-1;
+	}
+
+	&:--enter {
+		&::before,
+		&::after {
+			opacity: 1;
+			visibility: visible;
+		}
+	}
+}
+
+[data-pmw-balloon-pos="left-edge"] {
+	&::after {
+		left: 0;
+		right: auto;
+		transform: translate(0, 10px);
+	}
+}
+
+[data-pmw-balloon-pos="right-edge"] {
+	&::after {
+		left: auto;
+		right: 0;
+		transform: translate(0, 10px);
+	}
+}

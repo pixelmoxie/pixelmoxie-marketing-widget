@@ -6,14 +6,14 @@ module.exports = ( grunt, config ) ->
     # Paths
     paths:
       assets:       'assets/'
-      authorAssets: 'assets/widget/'
       bower:        'assets/bower/'
       concat:       'assets/bower/js/concat/'
+      widgetAssets: 'assets/widget/'
+      data:         'assets/widget/data/'
+      js:           'assets/widget/js/'
+      css:          'assets/widget/scss/'
       config:       'grunt/config/'
-      css:          'css/'
-      data:         'data/'
       dist:         'dist/'
-      js:           'js/'
       tmp:          'tmp/'
 
   # Measures the time each task takes
@@ -27,8 +27,8 @@ module.exports = ( grunt, config ) ->
       files:
         js:     project.paths.assets       + '{,*/}js/**/*.js'
         coffee: project.paths.assets       + '{,*/}js/**/*.coffee'
-        scss:   project.paths.authorAssets + 'scss/**/*.scss'
-        svg:    project.paths.authorAssets + 'svg/**/*.svg'
+        scss:   project.paths.widgetAssets + 'scss/**/*.scss'
+        svg:    project.paths.widgetAssets + 'svg/**/*.svg'
     jitGrunt:
       customTasksDir: 'grunt/tasks'
       staticMappings:

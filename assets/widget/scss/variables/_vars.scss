@@ -1,0 +1,90 @@
+// Global Font Families
+//------------------------------------------------------------------------------
+
+$sans-serif: $helvetica;
+$serif:      $georgia;
+$monospace:  $monospace;
+$system:     -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+
+// Base Font Sizes
+//------------------------------------------------------------------------------
+
+$base-font-size:             10px;
+$rem-base:                   strip-unit($base-font-size);
+$rem-percentage:             percentage(strip-units($rem-base) / 16);
+$strap-title-font-size:      16;
+$strap-cta-font-size:        14;
+$strap-menu-items-font-size: 14;
+$balloon-base-size:          10;
+
+// Z-Index Scale
+// --------------------------------------------------
+$z-index-1:   100;
+$z-index-2:   200;
+$z-index-3:   300;
+$z-index-4:   400;
+$z-index-5:   500;
+$z-index-6:   600;
+$z-index-7:   700;
+$z-index-8:   800;
+$z-index-9:   900;
+
+// Metrics
+//------------------------------------------------------------------------------
+
+// Spacing
+$base-spacing:         20;
+$base-spacing-half:    $base-spacing * 1 / 2;
+$base-spacing-quarter: $base-spacing * 1 / 4;
+$base-spacing-medium:  16;
+$widget-strap-gutter:  15px;
+
+// Sizes
+$strap-height:            44;
+$strap-logo-width:        34;
+$strap-logo-height:       24;
+$strap-menu-items-height: 28;
+$strap-cta-height:        28;
+$global-border-radius:    2px;
+$pill-border-radius:      50px;
+$balloon-arrow-height:    6px;
+
+// Margins and paddings
+$strap-logo-vert-margin:            ($strap-height - $strap-logo-height) * 1 / 2;
+$strap-logo-side-margin:            $base-spacing-medium;
+
+$strap-title-vert-margin:           ($strap-height - $strap-title-font-size) * 1 / 2;
+$strap-title-left-margin:           0;
+$strap-title-right-margin:          $base-spacing;
+
+$strap-menu-items-padding:          ($strap-menu-items-height - $strap-menu-items-font-size) * 1 / 2;
+$strap-menu-items-vert-margin:      ($strap-height - $strap-menu-items-height) * 1 / 2;
+$strap-menu-items-side-margin:      $base-spacing-half - $strap-menu-items-padding;
+$strap-menu-items-side-margin-last: $base-spacing - $strap-menu-items-padding;
+
+$strap-cta-vert-padding:            ($strap-cta-height - $strap-cta-font-size) * 1 / 2;
+$strap-cta-side-padding:            $strap-cta-height * 1 / 2;
+$strap-cta-vert-margin:             ($strap-height - $strap-cta-height) * 1 / 2;
+$strap-cta-left-margin:             0;
+$strap-cta-right-margin:            $base-spacing - $strap-menu-items-padding - $strap-menu-items-side-margin;
+
+// Colors
+//------------------------------------------------------------------------------
+
+$strap-bg-color-hue:              240;
+$strap-bg-color-sat:              30%;
+$strap-text-color-hue:            200;
+$strap-text-color-sat:            20%;
+
+$strap-highlight-color:           hsla($strap-bg-color-hue, $strap-bg-color-sat, 97%, 1);
+$strap-gradient-top-color:        hsla($strap-bg-color-hue, $strap-bg-color-sat, 95%, 1);
+$strap-gradient-bottom-color:     hsla($strap-bg-color-hue, $strap-bg-color-sat, 91%, 1);
+$strap-text-color:                hsla($strap-text-color-hue, $strap-text-color-sat, 38%, 1);
+$strap-text-color-emphasis:       hsla($strap-text-color-hue, $strap-text-color-sat, 22%, 1);
+
+$strap-cta-gradient-top-color:    hsla(178, 64%, 46%, 1);
+$strap-cta-gradient-bottom-color: hsla(168, 78%, 40%, 1);
+$strap-cta-text-color:            hsla($strap-text-color-hue, $strap-text-color-sat, 98%, 1);
+
+$balloon-background-color:        hsla($strap-text-color-hue, $strap-text-color-sat, 34%, 1);
+$balloon-text-color:              hsla($strap-text-color-hue, $strap-text-color-sat, 98%, 1);

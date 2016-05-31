@@ -16,3 +16,38 @@ module.exports = ( grunt, config ) ->
       'slim:data'
       'lineremover:data'
     ]
+
+  'livereload:html':
+    options:
+      livereload: true
+    files: [
+      '<%= paths.widgetAssets %>html/index.html.slim'
+    ]
+    tasks: [
+      'slim:html'
+    ]
+
+  'livereload:scss':
+    options:
+      livereload: true
+    files: [
+      '<%= files.scss %>'
+    ]
+    tasks: [
+      'sass:widget'
+      'postcss:widget'
+      'replace:css'
+      'copy:css'
+      'postcss:min'
+    ]
+
+  'livereload:js':
+    options:
+      livereload: true
+    files: [
+      '<%= paths.js %>**/*.coffee'
+    ]
+    tasks: [
+      'coffee'
+      'concat:scripts'
+    ]

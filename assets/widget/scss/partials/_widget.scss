@@ -1,0 +1,21 @@
+@custom-selector :--anylink :link, :visited;
+@custom-selector :--enter :hover, :focus;
+
+.pmxWidget {
+	box-sizing: border-box;
+
+	*,
+	*::before,
+	*::after {
+		box-sizing: inherit;
+	}
+
+	svg {
+		display: block;
+		max-width: 100%;
+		max-height: 100%;
+		color: inherit;
+		fill: currentColor;
+		pointer-events: none;
+	}
+}

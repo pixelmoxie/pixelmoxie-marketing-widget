@@ -1,0 +1,20 @@
+// Target touch devices
+@mixin touch {
+	.touch & {
+		@content;
+	}
+}
+
+// Target non touch devices
+@mixin no-touch {
+	.no-touch & {
+		@content;
+	}
+}
+
+// Use wherever a fixed position is declared to adjust for those annoying tmblr phone controls
+@mixin tmblr-phone-bump {
+	.tmblr-iframe--controls-phone-container:not(.has-controls--hidden) & {
+		@include to-rem(top, 44);
+	}
+}

@@ -12,12 +12,8 @@ module.exports = ( grunt, config ) ->
     '<%= paths.dist %>**/*.xml'
   ]
 
-  css: [
-    '<%= paths.css %>'
-  ]
-
-  js: [
-    '<%= paths.js %>'
+  dist: [
+    '<%= paths.dist %>'
   ]
 
   tmp: [

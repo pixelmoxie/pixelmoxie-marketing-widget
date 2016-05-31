@@ -1,0 +1,54 @@
+// Simple minimum and maximum width and height values.
+//------------------------------------------------------------------------------
+
+@mixin respond-to($value, $limit: "min", $axis: "width") {
+	@media (#{$limit}-#{$axis}: to-em(strip-unit($value), 16)) {
+		@content;
+	}
+}
+
+// Ranges.
+//------------------------------------------------------------------------------
+
+@mixin respond-range($min-value, $max-value: 0, $axis: "width") {
+
+	// If `min-value` is a named breakpoint and `max-value` is omitted use the
+	// next named breakpoint after the `min-value` breakpoint.
+	@if type-of($min-value) == "string" and $max-value == 0 {
+
+		$breakpoint-values: map-keys($breakpoints);
+		$breakpoint-index:  index($breakpoint-values, $min-value);
+
+		@if type-of($breakpoint-index) == "number" {
+
+			$next-breakpoint-index: $breakpoint-index + 1;
+
+			@if $min-value == "lap" {
+				$next-breakpoint-index: $breakpoint-index + 2;
+			}
+
+			@if $next-breakpoint-index <= length($breakpoint-values) {
+				$max-value: nth($breakpoint-values, $next-breakpoint-index);
+			} @else {
+				@warn "No max-#{$axis} value specified and no available breakpoints to use as a substitute";
+			}
+		} @else {
+			@warn "Breakpoint name '#{$min-value}' not recognised.";
+		}
+	}
+
+	@media (min-#{$axis}: to-em(strip-unit($min-value), 16)) and (max-#{$axis}: to-em(strip-unit($max-value), 16)) {
+		@content;
+	}
+}
+
+// Retina.
+//------------------------------------------------------------------------------
+
+@mixin respond-retina($resolution: $retina-resolution) {
+	$resolution: if(unitless($resolution), $resolution * 96dpi, $resolution);
+
+	@media (min-resolution: $resolution) {
+		@content;
+	}
+}

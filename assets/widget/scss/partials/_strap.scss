@@ -1,0 +1,122 @@
+%strap-typography-base {
+	font-family: $system;
+	font-weight: 600;
+}
+
+%strap-base-links {
+	transition: color 0.2s;
+	cursor: pointer;
+
+	&:--anylink {
+		color: $strap-text-color;
+	}
+
+	&:--enter {
+		color: $strap-text-color-emphasis;
+	}
+}
+
+.pmxWidgetStrap {
+	@include box-shadow(1);
+	@include position(fixed, null 0 0 null);
+	margin: $widget-strap-gutter;
+	font-size: 0;
+	background: linear-gradient(to bottom, $strap-gradient-top-color, $strap-gradient-bottom-color);
+	border-radius: $pill-border-radius;
+
+	&::before {
+		@include position(absolute, 0 0 0 0);
+		z-index: -1;
+		display: block;
+		border-radius: $pill-border-radius;
+		box-shadow: inset 0 1px 0 0 $strap-highlight-color;
+		content: "";
+	}
+}
+
+.pmxWidgetStrap-segment {
+	@include to-em(height, 44);
+	display: inline-block;
+	vertical-align: middle;
+	font-size: $base-font-size;
+	color: $strap-text-color;
+
+	* {
+		font-size: inherit;
+		color: inherit;
+	}
+}
+
+.pmxWidgetStrap-logo {
+	@extend %strap-typography-base;
+	@extend %strap-base-links;
+	@include to-em(width, $strap-logo-width);
+	@include to-em(height, $strap-logo-height);
+	@include to-em(margin, $strap-logo-vert-margin $strap-logo-side-margin);
+	display: block;
+}
+
+.pmxWidgetStrap-themeName {
+	@extend %strap-typography-base;
+	@include to-em(margin, $strap-title-vert-margin $strap-title-right-margin $strap-title-vert-margin $strap-title-left-margin, $strap-title-font-size);
+	@include to-em(font-size, $strap-title-font-size);
+	display: block;
+	line-height: 1;
+}
+
+// Widget Strap CTA
+.pmxWidgetStrap-cta {
+	@extend %strap-typography-base;
+	@include to-em(margin, $strap-cta-vert-margin $strap-cta-right-margin $strap-cta-vert-margin $strap-cta-left-margin, $strap-cta-font-size);
+	@include to-em(padding, $strap-cta-vert-padding $strap-cta-side-padding, $strap-cta-font-size);
+	@include to-em(font-size, $strap-cta-font-size);
+	display: block;
+	line-height: 1;
+	color: $strap-cta-text-color;
+	background: linear-gradient(to bottom, $strap-cta-gradient-top-color, $strap-cta-gradient-bottom-color);
+	border-radius: $pill-border-radius;
+	box-shadow: inset 0 0 0 1px rgba($strap-text-color, 0.1);
+	text-shadow: 0 1px 0 rgba($strap-text-color, 0.24), 0 0 0.5em rgba($strap-text-color, 0.24);
+	transition: opacity 0.2s;
+	cursor: pointer;
+
+	&:--enter {
+		opacity: 0.86;
+	}
+}
+
+.pmxWidgetStrap-cartIcon {
+	@include size(13 12);
+	display: inline-block;
+	vertical-align: -0.125em;
+	margin-left: 0.375em;
+	font-size: inherit;
+}
+
+// Widget Strap Menu
+.pmxWidgetStrap-menu {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+	font-size: 0;
+}
+
+.pmxWidgetStrap-menuItem {
+	display: inline-block;
+	vertical-align: middle;
+	font-size: $base-font-size;
+}
+
+.pmxWidgetStrap-trigger {
+	@extend %strap-typography-base;
+	@extend %strap-base-links;
+	@include to-em(margin, $strap-menu-items-vert-margin $strap-menu-items-side-margin, $strap-menu-items-font-size);
+	@include to-em(padding, $strap-menu-items-padding, $strap-menu-items-font-size);
+	@include to-em(font-size, $strap-menu-items-font-size);
+	display: block;
+	line-height: 1;
+}
+
+.pmxWidgetStrap-menuItem:last-of-type {
+	@include to-em(margin-right, $strap-menu-items-side-margin-last - $strap-menu-items-side-margin, $strap-menu-items-font-size);
+}
