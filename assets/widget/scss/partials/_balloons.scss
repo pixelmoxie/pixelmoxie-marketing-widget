@@ -14,37 +14,37 @@
 	}
 
 	&::after {
-		@extend %strap-typography-base;
 		@include balloon-base-effects;
 		@include to-em(font-size, $balloon-base-size + 2, $base-font-size);
+		position: absolute;
+		bottom: 100%;
+		left: 50%;
+		z-index: $z-index-1;
+		padding: 0.6em 0.8em;
+		margin-bottom: 5px + $balloon-arrow-height;
+		font-weight: normal;
+		line-height: 1;
+		color: $balloon-text-color;
+		white-space: nowrap;
 		background-color: $balloon-background-color;
 		border-radius: $global-border-radius;
-		bottom: 100%;
-		color: $balloon-text-color;
 		content: attr(data-pmw-balloon);
-		left: 50%;
-		margin-bottom: 5px + $balloon-arrow-height;
-		padding: 0.6em 0.8em;
-		position: absolute;
-		transform: translate(-50%, 10px);
 		visibility: hidden;
-		white-space: nowrap;
-		line-height: 1;
-		z-index: $z-index-1;
+		transform: translate(-50%, 10px);
 	}
 
 	&::before {
 		@include svg-arrow($balloon-background-color);
 		@include balloon-base-effects;
-		bottom: 100%;
-		content: "";
-		left: 50%;
-		margin-bottom: 5px;
 		position: absolute;
-		transform-origin: top;
-		transform: translate(-50%, 10px);
-		visibility: hidden;
+		bottom: 100%;
+		left: 50%;
 		z-index: $z-index-1;
+		margin-bottom: 5px;
+		content: "";
+		visibility: hidden;
+		transform: translate(-50%, 10px);
+		transform-origin: top;
 	}
 
 	&:--enter {
@@ -58,16 +58,16 @@
 
 [data-pmw-balloon-pos="left-edge"] {
 	&::after {
-		left: 0;
 		right: auto;
+		left: 0;
 		transform: translate(0, 10px);
 	}
 }
 
 [data-pmw-balloon-pos="right-edge"] {
 	&::after {
-		left: auto;
 		right: 0;
+		left: auto;
 		transform: translate(0, 10px);
 	}
 }

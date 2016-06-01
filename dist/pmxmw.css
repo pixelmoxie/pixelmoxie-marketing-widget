@@ -1,17 +1,7 @@
-.pmxWidget,
-.pmxWidget svg,
-.pmxWidgetStrap-logo, .pmxWidgetStrap-trigger,
-.pmxWidgetStrap,
-.pmxWidgetStrap-segment,
-.pmxWidgetStrap-segment *,
-.pmxWidgetStrap-logo,
-.pmxWidgetStrap-themeName,
-.pmxWidgetStrap-cta,
-.pmxWidgetStrap-cartIcon,
-.pmxWidgetStrap-menu,
-.pmxWidgetStrap-menuItem,
-.pmxWidgetStrap-trigger,
-[data-pmw-balloon] {
+/*
+PixelMoxie Widget
+----------------------------------------------------------------------------- */
+[class="pmxWidget"] {
 	position: static;
 	top: auto;
 	right: auto;
@@ -115,6 +105,7 @@
 	page-break-after: auto;
 	orphans: 2;
 	widows: 2;
+
 	-webkit-backface-visibility: visible;
 	        backface-visibility: visible;
 	-webkit-font-feature-settings: normal;
@@ -127,11 +118,10 @@
 	        transform-style: flat;
 }
 
-/*
-PixelMoxie Widget
------------------------------------------------------------------------------ */
 .pmxWidget {
 	box-sizing: border-box;
+	font-weight: 400;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
 }
 
 .pmxWidget *,
@@ -146,19 +136,16 @@ PixelMoxie Widget
 	max-height: 100%;
 	color: inherit;
 	pointer-events: none;
+
 	fill: currentColor;
 }
 
 /*
 PixelMoxie Widget Strap
 ----------------------------------------------------------------------------- */
-.pmxWidgetStrap-logo, .pmxWidgetStrap-themeName, .pmxWidgetStrap-cta, .pmxWidgetStrap-trigger, [data-pmw-balloon]::after {
-	font-weight: 600;
-	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-}
-
 .pmxWidgetStrap-logo, .pmxWidgetStrap-trigger {
-	cursor: pointer;
+	text-decoration: none;
+	font-weight: 600;
 	-webkit-transition: color 0.2s;
 	transition: color 0.2s;
 }
@@ -181,6 +168,8 @@ PixelMoxie Widget Strap
 	position: fixed;
 	right: 0;
 	bottom: 0;
+	z-index: 1000;
+	display: block;
 	margin: 15px;
 	border-radius: 50px;
 	background: -webkit-linear-gradient(top, #eeeef6, #e1e1ef);
@@ -199,7 +188,7 @@ PixelMoxie Widget Strap
 	display: block;
 	border-radius: 50px;
 	box-shadow: inset 0 1px 0 0 #f5f5fa;
-	content: '';
+	content: "";
 }
 
 .pmxWidgetStrap-segment {
@@ -208,11 +197,6 @@ PixelMoxie Widget Strap
 	color: #4e6774;
 	vertical-align: middle;
 	font-size: 10px;
-}
-
-.pmxWidgetStrap-segment * {
-	color: inherit;
-	font-size: inherit;
 }
 
 .pmxWidgetStrap-logo {
@@ -225,6 +209,7 @@ PixelMoxie Widget Strap
 .pmxWidgetStrap-themeName {
 	display: block;
 	margin: 0.875em 1.25em 0.875em 0;
+	font-weight: 600;
 	font-size: 1.6em;
 	line-height: 1;
 }
@@ -238,7 +223,9 @@ PixelMoxie Widget Strap
 	background: linear-gradient(to bottom, #2ac0bb, #16b696);
 	box-shadow: inset 0 0 0 1px rgba(78, 103, 116, 0.1);
 	color: #f9fafb;
+	text-decoration: none;
 	text-shadow: 0 1px 0 rgba(78, 103, 116, 0.24), 0 0 0.5em rgba(78, 103, 116, 0.24);
+	font-weight: 600;
 	font-size: 1.4em;
 	line-height: 1;
 	cursor: pointer;
@@ -254,11 +241,14 @@ PixelMoxie Widget Strap
 .pmxWidgetStrap-cartIcon {
 	display: inline-block;
 	margin-left: 0.375em;
+	width: 13px;
+	height: 12px;
 	vertical-align: -0.125em;
 	font-size: inherit;
 }
 
 .pmxWidgetStrap-menu {
+	display: block;
 	margin: 0;
 	padding: 0;
 	list-style-type: none;
@@ -308,6 +298,7 @@ PixelMoxie Widget Tooltips
 	color: #f9fafb;
 	content: attr(data-pmw-balloon);
 	white-space: nowrap;
+	font-weight: normal;
 	font-size: 1.2em;
 	line-height: 1;
 	opacity: 0;
@@ -329,7 +320,7 @@ PixelMoxie Widget Tooltips
 	height: 6px;
 	background: no-repeat url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2236px%22%20height%3D%2212px%22%3E%3Cpath%20fill%3D%22%23455c68%22%20transform%3D%22rotate(0)%22%20d%3D%22M2.658%2C0.000%20C-13.615%2C0.000%2050.938%2C0.000%2034.662%2C0.000%20C28.662%2C0.000%2023.035%2C12.002%2018.660%2C12.002%20C14.285%2C12.002%208.594%2C0.000%202.658%2C0.000%20Z%22%2F%3E%3C%2Fsvg%3E");
 	background-size: 100% auto;
-	content: '';
+	content: "";
 	opacity: 0;
 	-webkit-transition: all 0.2s ease 0.2s;
 	transition: all 0.2s ease 0.2s;
@@ -365,3 +356,93 @@ PixelMoxie Widget Tooltips
 /*
 PixelMoxie Widget Modal
 ----------------------------------------------------------------------------- */
+.pmxWidgetModal {
+	font-weight: 400;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+}
+
+.pmxWidgetModal {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	z-index: 1200;
+	display: none;
+	margin: auto;
+	min-width: 32em;
+	max-width: 64em;
+	width: 80%;
+	background: rgba(255, 0, 0, 0.4);
+	font-size: 10px;
+	-webkit-transform: translate(-50%, -50%);
+	        transform: translate(-50%, -50%);
+
+	-webkit-backface-visibility: hidden;
+	        backface-visibility: hidden;
+}
+
+.pmxWidgetModal * {
+	font-size: inherit;
+	font-family: inherit;
+}
+
+.pmxWidgetModal-header {
+	display: block;
+	background: white;
+}
+
+.pmxWidgetModal-themeName {
+	display: block;
+	font-weight: 600;
+	font-size: 1.8em;
+}
+
+.pmxWidgetModal-tabs {
+	display: block;
+	background: whitesmoke;
+	font-size: 0;
+}
+
+.pmxWidgetModal-tab {
+	display: inline-block;
+	font-size: 10px;
+}
+
+.pmxWidgetModal-trigger {
+	display: block;
+	font-size: 1.6em;
+}
+
+.pmxWidgetModal-viewport {
+	position: relative;
+	display: block;
+	padding-top: 75%;
+	height: 0;
+}
+
+.pmxWidgetModal-content {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.pmxWidgetModal-section {
+	display: block;
+	border: 1px dotted lime;
+}
+
+.pmxWidgetModal-sectionBody {
+	font-size: 1.6em;
+}
+
+.pmxWidgetOverlay {
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 1100;
+	display: none;
+	background: rgba(0, 0, 0, 0.5);
+}

@@ -48,5 +48,10 @@ module.exports = ( grunt, config ) ->
     'build:js'
   ]
 
+  # Check
+  'check': [
+    'scsslint'
+  ]
+
   # Default task
   default: [ 'watch' ]

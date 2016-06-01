@@ -120,7 +120,11 @@ linters:
     max_properties: 10
 
   PropertySortOrder:
-    enabled: false # To be handled with CSSComb
+    enabled: true
+    order: 'recess'
+    ignore_unspecified: false
+    min_properties: 2
+    separate_groups: false
 
   PropertySpelling:
     enabled: true

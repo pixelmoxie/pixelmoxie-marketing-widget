@@ -4,10 +4,10 @@ module.exports = ( grunt, config ) ->
     options:
       patterns: [
         # Ensure empty line before comments
-        {
-          match: /\}\n\/\*/g
-          replacement: "}\n\n/*"
-        }
+        # {
+        #   match: /\}\n\/\*/g
+        #   replacement: "}\n\n/*"
+        # }
       ]
     files: [
       expand: true

@@ -11,7 +11,13 @@ html
     css:
       body {
         margin: 0;
+        line-height: 0;
+        color: hotpink;
         background: hsl(0, 0%, 80%);
+      }
+
+      a {
+        color: green;
       }
 
     link rel="stylesheet" type="text/css" href="http://localhost:8000/pmxmw.css"
@@ -19,6 +25,46 @@ html
   body.has-marketing-widget
     #sample-markup
       .pmxWidget
+        .pmxWidgetModal
+          header.pmxWidgetModal-header
+            h2.pmxWidgetModal-themeName
+              | Monobloc Theme
+          nav.pmxWidgetModal-nav
+            ul.pmxWidgetModal-tabs
+              li.pmxWidgetModal-tab
+                a.pmxWidgetModal-trigger href="#pmx-features"
+                  | Features
+              li.pmxWidgetModal-tab
+                a.pmxWidgetModal-trigger href="#pmx-support"
+                  | Support
+              li.pmxWidgetModal-tab
+                a.pmxWidgetModal-trigger href="#pmx-settings"
+                  | Demo Settings
+          .pmxWidgetModal-viewport
+            .pmxWidgetModal-content
+
+              #pmx-features.pmxWidgetModal-section
+                .pmxWidgetModal-sectionBody
+                  p
+                    | Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh nec urna. In nisi neque, aliquet vel, dapibus id, mattis vel, nisi. Sed pretium, ligula sollicitudin laoreet viverra, tortor libero sodales leo, eget blandit nunc tortor eu nibh. Nullam mollis. Ut justo. Suspendisse potenti.
+
+              #pmx-support.pmxWidgetModal-section
+                .pmxWidgetModal-sectionBody
+                  p
+                    | Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh nec urna. In nisi neque, aliquet vel, dapibus id, mattis vel, nisi. Sed pretium, ligula sollicitudin laoreet viverra, tortor libero sodales leo, eget blandit nunc tortor eu nibh. Nullam mollis. Ut justo. Suspendisse potenti.
+                  p
+                    | Sed egestas, ante et vulputate volutpat, eros pede semper est, vitae luctus metus libero eu augue. Morbi purus libero, faucibus adipiscing, commodo quis, gravida id, est. Sed lectus. Praesent elementum hendrerit tortor. Sed semper lorem at felis. Vestibulum volutpat, lacus a ultrices sagittis, mi neque euismod dui, eu pulvinar nunc sapien ornare nisl. Phasellus pede arcu, dapibus eu, fermentum et, dapibus sed, urna.
+                  p
+                    | Morbi interdum mollis sapien. Sed ac risus. Phasellus lacinia, magna a ullamcorper laoreet, lectus arcu pulvinar risus, vitae facilisis libero dolor a purus. Sed vel lacus. Mauris nibh felis, adipiscing varius, adipiscing in, lacinia vel, tellus. Suspendisse ac urna. Etiam pellentesque mauris ut lectus. Nunc tellus ante, mattis eget, gravida vitae, ultricies ac, leo. Integer leo pede, ornare a, lacinia eu, vulputate vel, nisl.
+                  p
+                    | Suspendisse mauris. Fusce accumsan mollis eros. Pellentesque a diam sit amet mi ullamcorper vehicula. Integer adipiscing risus a sem. Nullam quis massa sit amet nibh viverra malesuada. Nunc sem lacus, accumsan quis, faucibus non, congue vel, arcu. Ut scelerisque hendrerit tellus. Integer sagittis. Vivamus a mauris eget arcu gravida tristique. Nunc iaculis mi in ante. Vivamus imperdiet nibh feugiat est.
+
+              #pmx-settings.pmxWidgetModal-section
+                .pmxWidgetModal-sectionBody
+                  p
+                    | Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh nec urna. In nisi neque, aliquet vel, dapibus id, mattis vel, nisi. Sed pretium, ligula sollicitudin laoreet viverra, tortor libero sodales leo, eget blandit nunc tortor eu nibh. Nullam mollis. Ut justo. Suspendisse potenti.
+
+        .pmxWidgetOverlay
         .pmxWidgetStrap
           .pmxWidgetStrap-segment.pmxWidgetStrap-branding
             a.pmxWidgetStrap-logo href="http://www.pixelmoxie.net" target="_blank"
@@ -32,15 +78,15 @@ html
               span.pmxWidgetStrap-cartIcon
                 <svg xmlns="http://www.w3.org/2000/svg" width="13" height="12" viewBox="0 0 13 12"><path d="M4 1c-.1-.6-.6-1-1.2-1H1C.5 0 0 .4 0 1s.4 1 1 1h1l.8 4.2c.1.5.6.8 1 .8h7.4c.5 0 .9-.3 1-.8l.8-4c.1-.3 0-.6-.2-.8-.2-.3-.5-.4-.8-.4H4z"/><circle cx="10.5" cy="10.5" r="1.5"/><circle cx="4.5" cy="10.5" r="1.5"/></svg>
           .pmxWidgetStrap-segment.pmxWidgetStrap-nav
-            ol.pmxWidgetStrap-menu
+            ul.pmxWidgetStrap-menu
               li.pmxWidgetStrap-menuItem
-                a.pmxWidgetStrap-trigger href="javascript:;"
+                a.pmxWidgetStrap-trigger href="#pmx-features"
                   | Features
               li.pmxWidgetStrap-menuItem
-                a.pmxWidgetStrap-trigger href="javascript:;"
+                a.pmxWidgetStrap-trigger href="#pmx-support"
                   | Support
               li.pmxWidgetStrap-menuItem data-pmw-balloon="Demo Settings" data-pmw-balloon-pos="right-edge"
-                a.pmxWidgetStrap-trigger.pmxWidgetStrap-trigger--settings href="javascript:;"
+                a.pmxWidgetStrap-trigger.pmxWidgetStrap-trigger--settings href="#pmx-settings"
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path d="M15 4h-2c-.6 0-1 .4-1 1s.4 1 1 1h2c.6 0 1-.4 1-1s-.4-1-1-1zm-6 6H7c-.6 0-1 .4-1 1s.4 1 1 1h2c.6 0 1-.4 1-1s-.4-1-1-1zM3 6H1c-.6 0-1 .4-1 1s.4 1 1 1h2c.6 0 1-.4 1-1s-.4-1-1-1zm11 1c-.6 0-1 .4-1 1v7c0 .6.4 1 1 1s1-.4 1-1V8c0-.6-.4-1-1-1zm0-4c.6 0 1-.4 1-1V1c0-.6-.4-1-1-1s-1 .4-1 1v1c0 .6.4 1 1 1zM8 9c.6 0 1-.4 1-1V1c0-.6-.4-1-1-1S7 .4 7 1v7c0 .6.4 1 1 1zm0 4c-.6 0-1 .4-1 1v1c0 .6.4 1 1 1s1-.4 1-1v-1c0-.6-.4-1-1-1zM2 9c-.6 0-1 .4-1 1v5c0 .6.4 1 1 1s1-.4 1-1v-5c0-.6-.4-1-1-1zm0-4c.6 0 1-.4 1-1V1c0-.6-.4-1-1-1S1 .4 1 1v3c0 .6.4 1 1 1z"/></svg>
 
     script src="https://code.jquery.com/jquery-1.12.2.min.js"

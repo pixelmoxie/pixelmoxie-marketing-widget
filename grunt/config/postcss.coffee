@@ -7,16 +7,14 @@ module.exports = ( grunt, config ) ->
   widget:
     options:
       processors: [
-        require( 'postcss-autoreset' )({
-          'reset': 'initial'
-          'rulesMatcher': 'bem'
-        })
         require( 'postcss-initial' )({
           'reset': 'all'
           'replace': true
         })
         require( 'postcss-cssnext' )({})
-        require( 'postcss-sorting' )({})
+        require( 'postcss-sorting' )({
+          'sort-order': 'zen'
+        })
         require( 'postcss-normalize-charset' )({})
       ]
     files:

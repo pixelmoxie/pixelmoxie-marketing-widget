@@ -8,7 +8,13 @@
 		<style type="text/css">
 			body {
 			  margin: 0;
+			  line-height: 0;
+			  color: hotpink;
 			  background: hsl(0, 0%, 80%);
+			}
+			
+			a {
+			  color: green;
 			}
 		</style>
 		<link rel="stylesheet" type="text/css" href="http://localhost:8000/pmxmw.css" />
@@ -16,6 +22,61 @@
 	<body class="has-marketing-widget">
 		<div id="sample-markup">
 			<div class="pmxWidget">
+				<div class="pmxWidgetModal">
+					<header class="pmxWidgetModal-header">
+						<h2 class="pmxWidgetModal-themeName">
+							Monobloc Theme
+						</h2>
+					</header>
+					<nav class="pmxWidgetModal-nav">
+						<ul class="pmxWidgetModal-tabs">
+							<li class="pmxWidgetModal-tab">
+								<a class="pmxWidgetModal-trigger" href="#pmx-features">Features</a>
+							</li>
+							<li class="pmxWidgetModal-tab">
+								<a class="pmxWidgetModal-trigger" href="#pmx-support">Support</a>
+							</li>
+							<li class="pmxWidgetModal-tab">
+								<a class="pmxWidgetModal-trigger" href="#pmx-settings">Demo Settings</a>
+							</li>
+						</ul>
+					</nav>
+					<div class="pmxWidgetModal-viewport">
+						<div class="pmxWidgetModal-content">
+							<div id="pmx-features" class="pmxWidgetModal-section">
+								<div class="pmxWidgetModal-sectionBody">
+									<p>
+										Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh nec urna. In nisi neque, aliquet vel, dapibus id, mattis vel, nisi. Sed pretium, ligula sollicitudin laoreet viverra, tortor libero sodales leo, eget blandit nunc tortor eu nibh. Nullam mollis. Ut justo. Suspendisse potenti.
+									</p>
+								</div>
+							</div>
+							<div id="pmx-support" class="pmxWidgetModal-section">
+								<div class="pmxWidgetModal-sectionBody">
+									<p>
+										Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh nec urna. In nisi neque, aliquet vel, dapibus id, mattis vel, nisi. Sed pretium, ligula sollicitudin laoreet viverra, tortor libero sodales leo, eget blandit nunc tortor eu nibh. Nullam mollis. Ut justo. Suspendisse potenti.
+									</p>
+									<p>
+										Sed egestas, ante et vulputate volutpat, eros pede semper est, vitae luctus metus libero eu augue. Morbi purus libero, faucibus adipiscing, commodo quis, gravida id, est. Sed lectus. Praesent elementum hendrerit tortor. Sed semper lorem at felis. Vestibulum volutpat, lacus a ultrices sagittis, mi neque euismod dui, eu pulvinar nunc sapien ornare nisl. Phasellus pede arcu, dapibus eu, fermentum et, dapibus sed, urna.
+									</p>
+									<p>
+										Morbi interdum mollis sapien. Sed ac risus. Phasellus lacinia, magna a ullamcorper laoreet, lectus arcu pulvinar risus, vitae facilisis libero dolor a purus. Sed vel lacus. Mauris nibh felis, adipiscing varius, adipiscing in, lacinia vel, tellus. Suspendisse ac urna. Etiam pellentesque mauris ut lectus. Nunc tellus ante, mattis eget, gravida vitae, ultricies ac, leo. Integer leo pede, ornare a, lacinia eu, vulputate vel, nisl.
+									</p>
+									<p>
+										Suspendisse mauris. Fusce accumsan mollis eros. Pellentesque a diam sit amet mi ullamcorper vehicula. Integer adipiscing risus a sem. Nullam quis massa sit amet nibh viverra malesuada. Nunc sem lacus, accumsan quis, faucibus non, congue vel, arcu. Ut scelerisque hendrerit tellus. Integer sagittis. Vivamus a mauris eget arcu gravida tristique. Nunc iaculis mi in ante. Vivamus imperdiet nibh feugiat est.
+									</p>
+								</div>
+							</div>
+							<div id="pmx-settings" class="pmxWidgetModal-section">
+								<div class="pmxWidgetModal-sectionBody">
+									<p>
+										Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh nec urna. In nisi neque, aliquet vel, dapibus id, mattis vel, nisi. Sed pretium, ligula sollicitudin laoreet viverra, tortor libero sodales leo, eget blandit nunc tortor eu nibh. Nullam mollis. Ut justo. Suspendisse potenti.
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="pmxWidgetOverlay"></div>
 				<div class="pmxWidgetStrap">
 					<div class="pmxWidgetStrap-segment pmxWidgetStrap-branding">
 						<a class="pmxWidgetStrap-logo" href="http://www.pixelmoxie.net" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="56" height="40" viewBox="0 0 56 40"><path d="M52.6 3.4C50.3 1.1 47.3 0 44.4 0c-3 0-5.9 1.1-8.2 3.4L28 11.6l-8.2-8.2C17.6 1.1 14.6 0 11.6 0S5.7 1.1 3.4 3.4C1.1 5.7 0 8.6 0 11.6c0 3 1.1 5.9 3.4 8.2L20.6 37c4.1 4.1 10.7 4.1 14.7 0l17.2-17.2c2.2-2.2 3.3-5 3.4-7.9.1-3.1-1-6.2-3.3-8.5zM30.5 18.9c1.4 1.4 1.4 3.6 0 4.9-.6.7-1.5 1-2.5 1s-1.8-.4-2.5-1c-1.4-1.4-1.4-3.6 0-4.9l2.5-2.5 2.5 2.5zM50.1 5.8c3.2 3.2 3.2 8.3 0 11.5L32.9 34.5c-2.7 2.7-7.1 2.7-9.8 0L5.9 17.3C2.7 14.1 2.7 9 5.9 5.8c3.2-3.2 8.3-3.2 11.5 0l8.2 8.2-2.5 2.5c-1.3 1.3-2 3.1-2 4.9s.7 3.6 2 4.9c2.7 2.7 7.1 2.7 9.8 0 1.3-1.3 2-3.1 2-4.9 0-1.8-.7-3.6-2-4.9L30.5 14l8.2-8.2c3.1-3.1 8.2-3.1 11.4 0z"/></svg></a>
@@ -29,17 +90,17 @@
 						<a class="pmxWidgetStrap-cta" href="javascript:;" target="_blank">Buy Now<span class="pmxWidgetStrap-cartIcon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="12" viewBox="0 0 13 12"><path d="M4 1c-.1-.6-.6-1-1.2-1H1C.5 0 0 .4 0 1s.4 1 1 1h1l.8 4.2c.1.5.6.8 1 .8h7.4c.5 0 .9-.3 1-.8l.8-4c.1-.3 0-.6-.2-.8-.2-.3-.5-.4-.8-.4H4z"/><circle cx="10.5" cy="10.5" r="1.5"/><circle cx="4.5" cy="10.5" r="1.5"/></svg></span></a>
 					</div>
 					<div class="pmxWidgetStrap-segment pmxWidgetStrap-nav">
-						<ol class="pmxWidgetStrap-menu">
+						<ul class="pmxWidgetStrap-menu">
 							<li class="pmxWidgetStrap-menuItem">
-								<a class="pmxWidgetStrap-trigger" href="javascript:;">Features</a>
+								<a class="pmxWidgetStrap-trigger" href="#pmx-features">Features</a>
 							</li>
 							<li class="pmxWidgetStrap-menuItem">
-								<a class="pmxWidgetStrap-trigger" href="javascript:;">Support</a>
+								<a class="pmxWidgetStrap-trigger" href="#pmx-support">Support</a>
 							</li>
 							<li class="pmxWidgetStrap-menuItem" data-pmw-balloon="Demo Settings" data-pmw-balloon-pos="right-edge">
-								<a class="pmxWidgetStrap-trigger pmxWidgetStrap-trigger--settings" href="javascript:;"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path d="M15 4h-2c-.6 0-1 .4-1 1s.4 1 1 1h2c.6 0 1-.4 1-1s-.4-1-1-1zm-6 6H7c-.6 0-1 .4-1 1s.4 1 1 1h2c.6 0 1-.4 1-1s-.4-1-1-1zM3 6H1c-.6 0-1 .4-1 1s.4 1 1 1h2c.6 0 1-.4 1-1s-.4-1-1-1zm11 1c-.6 0-1 .4-1 1v7c0 .6.4 1 1 1s1-.4 1-1V8c0-.6-.4-1-1-1zm0-4c.6 0 1-.4 1-1V1c0-.6-.4-1-1-1s-1 .4-1 1v1c0 .6.4 1 1 1zM8 9c.6 0 1-.4 1-1V1c0-.6-.4-1-1-1S7 .4 7 1v7c0 .6.4 1 1 1zm0 4c-.6 0-1 .4-1 1v1c0 .6.4 1 1 1s1-.4 1-1v-1c0-.6-.4-1-1-1zM2 9c-.6 0-1 .4-1 1v5c0 .6.4 1 1 1s1-.4 1-1v-5c0-.6-.4-1-1-1zm0-4c.6 0 1-.4 1-1V1c0-.6-.4-1-1-1S1 .4 1 1v3c0 .6.4 1 1 1z"/></svg></a>
+								<a class="pmxWidgetStrap-trigger pmxWidgetStrap-trigger--settings" href="#pmx-settings"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path d="M15 4h-2c-.6 0-1 .4-1 1s.4 1 1 1h2c.6 0 1-.4 1-1s-.4-1-1-1zm-6 6H7c-.6 0-1 .4-1 1s.4 1 1 1h2c.6 0 1-.4 1-1s-.4-1-1-1zM3 6H1c-.6 0-1 .4-1 1s.4 1 1 1h2c.6 0 1-.4 1-1s-.4-1-1-1zm11 1c-.6 0-1 .4-1 1v7c0 .6.4 1 1 1s1-.4 1-1V8c0-.6-.4-1-1-1zm0-4c.6 0 1-.4 1-1V1c0-.6-.4-1-1-1s-1 .4-1 1v1c0 .6.4 1 1 1zM8 9c.6 0 1-.4 1-1V1c0-.6-.4-1-1-1S7 .4 7 1v7c0 .6.4 1 1 1zm0 4c-.6 0-1 .4-1 1v1c0 .6.4 1 1 1s1-.4 1-1v-1c0-.6-.4-1-1-1zM2 9c-.6 0-1 .4-1 1v5c0 .6.4 1 1 1s1-.4 1-1v-5c0-.6-.4-1-1-1zm0-4c.6 0 1-.4 1-1V1c0-.6-.4-1-1-1S1 .4 1 1v3c0 .6.4 1 1 1z"/></svg></a>
 							</li>
-						</ol>
+						</ul>
 					</div>
 				</div>
 			</div>
