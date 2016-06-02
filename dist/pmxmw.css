@@ -1,7 +1,7 @@
 /*
 PixelMoxie Widget
 ----------------------------------------------------------------------------- */
-[class="pmxWidget"] {
+[class~="pmxWidget"] {
 	position: static;
 	top: auto;
 	right: auto;
@@ -176,6 +176,20 @@ PixelMoxie Widget Strap
 	background: linear-gradient(to bottom, #eeeef6, #e1e1ef);
 	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 	font-size: 0;
+	opacity: 1;
+	-webkit-transition: all 0.2s cubic-bezier(0.455, 0.03, 0.515, 0.955) 0.6s;
+	transition: all 0.2s cubic-bezier(0.455, 0.03, 0.515, 0.955) 0.6s;
+	-webkit-transform: translateY(0) scale(1);
+	        transform: translateY(0) scale(1);
+
+	-webkit-backface-visibility: hidden;
+	        backface-visibility: hidden;
+}
+
+.showModal > .pmxWidgetStrap {
+	opacity: 0;
+	-webkit-transform: translateY(120%) scale(0.9);
+	        transform: translateY(120%) scale(0.9);
 }
 
 .pmxWidgetStrap::before {
@@ -356,84 +370,10 @@ PixelMoxie Widget Tooltips
 /*
 PixelMoxie Widget Modal
 ----------------------------------------------------------------------------- */
-.pmxWidgetModal {
-	font-weight: 400;
-	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-}
-
-.pmxWidgetModal {
-	position: fixed;
-	top: 50%;
-	left: 50%;
-	z-index: 1200;
-	display: none;
-	margin: auto;
-	min-width: 32em;
-	max-width: 64em;
-	width: 80%;
-	background: rgba(255, 0, 0, 0.4);
-	font-size: 10px;
-	-webkit-transform: translate(-50%, -50%);
-	        transform: translate(-50%, -50%);
-
-	-webkit-backface-visibility: hidden;
-	        backface-visibility: hidden;
-}
-
-.pmxWidgetModal * {
-	font-size: inherit;
-	font-family: inherit;
-}
-
-.pmxWidgetModal-header {
-	display: block;
-	background: white;
-}
-
-.pmxWidgetModal-themeName {
-	display: block;
-	font-weight: 600;
-	font-size: 1.8em;
-}
-
-.pmxWidgetModal-tabs {
-	display: block;
-	background: whitesmoke;
-	font-size: 0;
-}
-
-.pmxWidgetModal-tab {
-	display: inline-block;
-	font-size: 10px;
-}
-
-.pmxWidgetModal-trigger {
-	display: block;
-	font-size: 1.6em;
-}
-
-.pmxWidgetModal-viewport {
-	position: relative;
-	display: block;
-	padding-top: 75%;
-	height: 0;
-}
-
-.pmxWidgetModal-content {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-}
-
-.pmxWidgetModal-section {
-	display: block;
-	border: 1px dotted lime;
-}
-
-.pmxWidgetModal-sectionBody {
-	font-size: 1.6em;
+.pmxWidgetModal-themeName, .pmxWidgetModal-trigger {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
 }
 
 .pmxWidgetOverlay {
@@ -443,6 +383,240 @@ PixelMoxie Widget Modal
 	bottom: 0;
 	left: 0;
 	z-index: 1100;
-	display: none;
-	background: rgba(0, 0, 0, 0.5);
+	display: block;
+	visibility: hidden;
+	background: rgba(41, 47, 50, 0.75);
+	opacity: 0;
+	-webkit-transition: all 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955) 0.3s;
+	transition: all 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955) 0.3s;
+}
+
+.showModal > .pmxWidgetOverlay {
+	visibility: visible;
+	opacity: 1;
+	-webkit-transition-delay: 0s;
+	        transition-delay: 0s;
+}
+
+.pmxWidgetOverlay-close {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 36px;
+	height: 36px;
+	color: #ffffff;
+	opacity: 0.7;
+	cursor: pointer;
+}
+
+.pmxWidgetModal {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	z-index: 1200;
+	display: block;
+	visibility: hidden;
+	margin: auto;
+	min-width: 32em;
+	max-width: 64em;
+	width: 80%;
+	font-size: 10px;
+	-webkit-transform: translate(-50%, -50%);
+	        transform: translate(-50%, -50%);
+
+	-webkit-backface-visibility: hidden;
+	        backface-visibility: hidden;
+}
+
+.showModal > .pmxWidgetModal {
+	visibility: visible;
+}
+
+.pmxWidgetModal-contentWrap {
+	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+	opacity: 0;
+	-webkit-transition: all 0.2s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+	transition: all 0.2s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+	-webkit-transform: translateY(20%) scale(0.9);
+	        transform: translateY(20%) scale(0.9);
+
+	-webkit-backface-visibility: hidden;
+	        backface-visibility: hidden;
+}
+
+.showModal .pmxWidgetModal-contentWrap {
+	opacity: 1;
+	-webkit-transition-delay: 0.3s;
+	        transition-delay: 0.3s;
+	-webkit-transition-duration: 0.3s;
+	        transition-duration: 0.3s;
+	-webkit-transform: translateY(0) scale(1);
+	        transform: translateY(0) scale(1);
+}
+
+.pmxWidgetModal-header {
+	display: block;
+	overflow: hidden;
+	border-top-left-radius: 2px;
+	border-top-right-radius: 2px;
+	background: rgba(69, 87, 99, 0.86);
+	background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0));
+	background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0));
+	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.pmxWidgetModal-themeName {
+	display: block;
+	margin: 1.3em 0;
+	color: rgba(255, 255, 255, 0.7);
+	text-align: center;
+	letter-spacing: 0.0625em;
+	font-weight: 600;
+	font-size: 2em;
+	line-height: 1;
+}
+
+.pmxWidgetModal-nav {
+	position: relative;
+	z-index: 200;
+	display: block;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+.pmxWidgetModal-tabs {
+	margin: 0;
+	padding: 0;
+	background: -webkit-linear-gradient(top, #ebebf4, #dedeed);
+	background: linear-gradient(to bottom, #ebebf4, #dedeed);
+	box-shadow: inset 0 1px 0 0 #f8f8fb;
+	list-style-type: none;
+	font-size: 0;
+}
+
+.pmxWidgetModal-tab {
+	display: inline-block;
+	font-size: 10px;
+}
+
+.pmxWidgetModal-tab:nth-child(1):nth-last-child(1) {
+	width: 100%;
+}
+
+.pmxWidgetModal-tab:nth-child(1):nth-last-child(2), .pmxWidgetModal-tab:nth-child(2):nth-last-child(1) {
+	width: 50%;
+}
+
+.pmxWidgetModal-tab:nth-child(1):nth-last-child(3), .pmxWidgetModal-tab:nth-child(2):nth-last-child(2), .pmxWidgetModal-tab:nth-child(3):nth-last-child(1) {
+	width: 33.3333%;
+}
+
+.pmxWidgetModal-tab:nth-child(1):nth-last-child(4), .pmxWidgetModal-tab:nth-child(2):nth-last-child(3), .pmxWidgetModal-tab:nth-child(3):nth-last-child(2), .pmxWidgetModal-tab:nth-child(4):nth-last-child(1) {
+	width: 25%;
+}
+
+.pmxWidgetModal-trigger {
+	position: relative;
+	display: block;
+	padding: 1em;
+	text-align: center;
+	text-decoration: none;
+	font-weight: 600;
+	font-size: 1.6em;
+	line-height: 1;
+	-webkit-transition: color 0.2s;
+	transition: color 0.2s;
+}
+
+.pmxWidgetModal-trigger::before, .pmxWidgetModal-trigger::after {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	display: block;
+	height: 2px;
+	background-color: #aebdc7;
+	content: "";
+}
+
+.pmxWidgetModal-trigger::after {
+	background-color: #758e9f;
+	-webkit-transition: background 0.2s, -webkit-transform 0.2s;
+	transition: background 0.2s, -webkit-transform 0.2s;
+	transition: background 0.2s, transform 0.2s;
+	transition: background 0.2s, transform 0.2s, -webkit-transform 0.2s;
+}
+
+.pmxWidgetModal-trigger:link,
+.pmxWidgetModal-trigger:visited {
+	color: #4e6774;
+}
+
+.pmxWidgetModal-trigger:link::after,
+.pmxWidgetModal-trigger:visited::after {
+	opacity: 0;
+	-webkit-transform: scaleX(0.2);
+	        transform: scaleX(0.2);
+}
+
+.pmxWidgetModal-trigger:hover,
+.pmxWidgetModal-trigger:focus,
+.pmxWidgetModal-trigger.isActive {
+	color: #2d3c43;
+}
+
+.pmxWidgetModal-trigger:hover::after,
+.pmxWidgetModal-trigger:focus::after,
+.pmxWidgetModal-trigger.isActive::after {
+	opacity: 1;
+	-webkit-transform: scaleX(1);
+	        transform: scaleX(1);
+}
+
+.pmxWidgetModal-trigger.isActive::after {
+	background-color: #455763;
+}
+
+.pmxWidgetModal-viewport {
+	position: relative;
+	z-index: 100;
+	display: block;
+	overflow: hidden;
+	padding-top: 56.25%;
+	height: 0;
+	background-color: #f2f2f8;
+}
+
+.pmxWidgetModal-content {
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+
+.pmxWidgetModal-section {
+	display: block;
+	overflow-x: hidden;
+	overflow-y: scroll;
+	-webkit-overflow-scrolling: touch;
+	width: 100%;
+	height: 100%;
+	background-color: #f2f2f8;
+}
+
+.no-touch .pmxWidgetModal-section {
+	overflow-y: auto;
+}
+
+.pmxWidgetModal-sectionBody {
+	display: block;
+	font-size: 1.6em;
+}
+
+.pmxWidgetModal-footer {
+	min-height: 2em;
+	border-bottom-right-radius: 2px;
+	border-bottom-left-radius: 2px;
+	background-color: #f2f2f8;
 }

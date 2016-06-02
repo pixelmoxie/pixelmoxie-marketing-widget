@@ -1,84 +1,232 @@
-%modal-typography-base {
-	font-family: $system;
-	font-weight: 400;
-}
-
-.pmxWidgetModal {
-	@extend %modal-typography-base;
-	@include position(fixed, 50% null null 50%);
-	@include to-em(min-width, $modal-min-width);
-	@include to-em(max-width, $modal-max-width);
-	z-index: $modal-z-index;
-	display: none;
-	width: 80%;
-	margin: auto;
-	font-size: $base-font-size;
-	backface-visibility: hidden;
-	transform: translate(-50%, -50%);
-	background: rgba(red, 0.4);
-
-	* {
-		font-family: inherit;
-		font-size: inherit;
-	}
-}
-
-// Modal header
-.pmxWidgetModal-header {
-	display: block;
-	background: white;
-}
-
-.pmxWidgetModal-themeName {
-	@include to-em(font-size, $modal-title-font-size);
-	display: block;
-	font-weight: 600;
-}
-
-// Modal tabs
-.pmxWidgetModal-tabs {
-	display: block;
-	font-size: 0;
-	background: whitesmoke;
-}
-
-.pmxWidgetModal-tab {
-	font-size: $base-font-size;
-	display: inline-block;
-}
-
-.pmxWidgetModal-trigger {
-	@include to-em(font-size, $modal-tabs-font-size);
-	display: block;
-}
-
-// Modal contents
-.pmxWidgetModal-viewport {
-	display: block;
-	position: relative;
-	height: 0;
-	padding-top: 100% / $modal-aspect-ratio;
-}
-
-.pmxWidgetModal-content {
-	@include position(absolute, 0 null null 0);
-	width: 100%;
-	height: 100%;
-}
-
-.pmxWidgetModal-section {
-	display: block;
-	border: 1px dotted lime;
-}
-
-.pmxWidgetModal-sectionBody {
-	@include to-em(font-size, $modal-base-font-size);
+%truncate {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
 }
 
 // Overlay
 .pmxWidgetOverlay {
 	@include position(fixed, 0 0 0 0);
 	z-index: $overlay-z-index;
-	background: rgba(black, 0.5);
-	display: none;
+	display: block;
+	background: $overlay-bg-color;
+	opacity: 0;
+	visibility: hidden;
+	transition: all $modal-transition-duration $modal-transition-timing-function $modal-transition-duration;
+
+	.showModal > & {
+		opacity: 1;
+		visibility: visible;
+		transition-delay: 0s;
+	}
+}
+
+.pmxWidgetOverlay-close {
+	@include size(36px);
+	@include position(absolute, 0 0 null null);
+	color: $white;
+	cursor: pointer;
+	opacity: 0.7;
+}
+
+// Modal
+.pmxWidgetModal {
+	@include position(fixed, 50% null null 50%);
+	@include to-em(min-width, $modal-min-width);
+	@include to-em(max-width, $modal-max-width);
+	z-index: $modal-z-index;
+	display: block;
+	width: 80%;
+	margin: auto;
+	font-size: $base-font-size;
+	visibility: hidden;
+	transform: translate(-50%, -50%);
+	backface-visibility: hidden;
+
+	.showModal > & {
+		visibility: visible;
+	}
+}
+
+.pmxWidgetModal-contentWrap {
+	@include box-shadow(2);
+	opacity: 0;
+	transform: translateY(20%) scale(0.9);
+	transition: all $modal-transition-duration-leave $modal-transition-timing-function;
+	backface-visibility: hidden;
+
+	.showModal & {
+		opacity: 1;
+		transform: translateY(0) scale(1);
+		transition-delay: $modal-transition-duration;
+		transition-duration: $modal-transition-duration-enter;
+	}
+}
+
+// Modal header
+.pmxWidgetModal-header {
+	display: block;
+	overflow: hidden;
+	background: $modal-header-bg-color;
+	background-image: linear-gradient(to bottom, white(0.05), white(0));
+	border-top-right-radius: $global-border-radius;
+	border-top-left-radius: $global-border-radius;
+	box-shadow: inset 0 1px 0 white(0.05);
+}
+
+.pmxWidgetModal-themeName {
+	@extend %truncate;
+	@include to-em(margin, $modal-title-vert-margin 0, $modal-title-font-size);
+	@include to-em(font-size, $modal-title-font-size);
+	display: block;
+	font-weight: 600;
+	line-height: 1;
+	letter-spacing: 0.0625em;
+	color: $modal-header-text-color;
+	text-align: center;
+}
+
+// Modal tabs
+.pmxWidgetModal-nav {
+	@include box-shadow(1);
+	position: relative;
+	z-index: $z-index-2;
+	display: block;
+}
+
+.pmxWidgetModal-tabs {
+	padding: 0;
+	margin: 0;
+	font-size: 0;
+	list-style-type: none;
+	background: linear-gradient(to bottom, $tabs-gradient-top-color, $tabs-gradient-bottom-color);
+	box-shadow: inset 0 1px 0 0 $tabs-highlight-color;
+}
+
+.pmxWidgetModal-tab {
+	display: inline-block;
+	font-size: $base-font-size;
+
+	// one item
+	&:nth-child(1):nth-last-child(1) {
+		width: 100%;
+	}
+
+	// two items
+	&:nth-child(1):nth-last-child(2),
+	&:nth-child(2):nth-last-child(1) {
+		width: 50%;
+	}
+
+	// three items
+	&:nth-child(1):nth-last-child(3),
+	&:nth-child(2):nth-last-child(2),
+	&:nth-child(3):nth-last-child(1) {
+		width: 33.3333%;
+	}
+
+	// four items
+	&:nth-child(1):nth-last-child(4),
+	&:nth-child(2):nth-last-child(3),
+	&:nth-child(3):nth-last-child(2),
+	&:nth-child(4):nth-last-child(1) {
+		width: 25%;
+	}
+}
+
+.pmxWidgetModal-trigger {
+	@extend %truncate;
+	@include to-em(padding, $modal-tabs-padding, $modal-tabs-font-size);
+	@include to-em(font-size, $modal-tabs-font-size);
+	position: relative;
+	display: block;
+	font-weight: 600;
+	line-height: 1;
+	text-align: center;
+	text-decoration: none;
+	transition: color 0.2s;
+
+	&::before,
+	&::after {
+		@include position(absolute, null 0 0 0);
+		display: block;
+		height: 2px;
+		background-color: $tabs-border-color;
+		content: "";
+	}
+
+	&::after {
+		background-color: $tabs-border-color-enter;
+		transition: background 0.2s, transform 0.2s;
+	}
+
+	&:--anylink {
+		color: $tabs-text-color;
+
+		&::after {
+			opacity: 0;
+			transform: scaleX(0.2);
+		}
+	}
+
+	&:--enter,
+	&.isActive {
+		color: $tabs-text-color-emphasis;
+
+		&::after {
+			opacity: 1;
+			transform: scaleX(1);
+		}
+	}
+
+	&.isActive {
+		&::after {
+			background-color: $tabs-border-color-active;
+		}
+	}
+}
+
+// Modal contents
+.pmxWidgetModal-viewport {
+	position: relative;
+	z-index: $z-index-1;
+	display: block;
+	height: 0;
+	padding-top: 100% / $modal-aspect-ratio;
+	overflow: hidden;
+	background-color: $panel-base-bg-color;
+}
+
+.pmxWidgetModal-content {
+	@include position(absolute, 0 null null 0);
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+
+.pmxWidgetModal-section {
+	display: block;
+	width: 100%;
+	height: 100%;
+	overflow-x: hidden;
+	overflow-y: scroll;
+	background-color: $panel-base-bg-color;
+	-webkit-overflow-scrolling: touch;
+
+	.no-touch & {
+		overflow-y: auto;
+	}
+}
+
+.pmxWidgetModal-sectionBody {
+	@include to-em(font-size, $modal-base-font-size);
+	display: block;
+}
+
+// Modal footer
+.pmxWidgetModal-footer {
+	@include to-em(min-height, 20);
+	background-color: $panel-base-bg-color;
+	border-bottom-right-radius: $global-border-radius;
+	border-bottom-left-radius: $global-border-radius;
 }

@@ -1,4 +1,4 @@
 $ ->
-  window.pmxmw = new PMXMW.Widget()
+  window.pmxmw = new PMXMW.WidgetView()
   window.pmxmw.render()
   return

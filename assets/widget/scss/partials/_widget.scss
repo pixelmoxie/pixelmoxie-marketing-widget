@@ -2,7 +2,7 @@
 @custom-selector :--enter :hover, :focus;
 
 // Reset
-[class="pmxWidget"] {
+[class~="pmxWidget"] {
 	all: initial;
 }
 

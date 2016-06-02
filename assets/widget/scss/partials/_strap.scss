@@ -21,6 +21,15 @@
 	font-size: 0;
 	background: linear-gradient(to bottom, $strap-gradient-top-color, $strap-gradient-bottom-color);
 	border-radius: $pill-border-radius;
+	opacity: 1;
+	transform: translateY(0) scale(1);
+	transition: all 0.2s $ease-in-out-quad 0.6s;
+	backface-visibility: hidden;
+
+	.showModal > & {
+		opacity: 0;
+		transform: translateY(120%) scale(0.9);
+	}
 
 	&::before {
 		@include position(absolute, 0 0 0 0);

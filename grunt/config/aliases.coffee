@@ -51,6 +51,7 @@ module.exports = ( grunt, config ) ->
   # Check
   'check': [
     'scsslint'
+    'coffeelint'
   ]
 
   # Default task
