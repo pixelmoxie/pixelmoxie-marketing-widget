@@ -9,16 +9,22 @@ $system:     -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", 
 // Base Font Sizes
 //------------------------------------------------------------------------------
 
-$base-font-size:             10px;
-$rem-base:                   strip-unit($base-font-size);
-$rem-percentage:             percentage(strip-units($rem-base) / 16);
-$modal-title-font-size:      20;
-$modal-tabs-font-size:       16;
-$modal-base-font-size:       16;
-$strap-title-font-size:      16;
-$strap-cta-font-size:        14;
-$strap-menu-items-font-size: 14;
-$balloon-base-size:          10;
+$base-font-size:                  10px;
+$rem-base:                        strip-unit($base-font-size);
+$rem-percentage:                  percentage(strip-units($rem-base) / 16);
+$modal-title-font-size:           20;
+$modal-tabs-font-size:            16;
+$modal-base-font-size:            16;
+$modal-base-line-height:          22;
+$modal-base-line-height-unitless: $modal-base-line-height / $modal-base-font-size;
+$modal-h1-font-size:              to-em(floor(modular-scale(2, $modal-base-font-size, 1.125)), $modal-base-font-size);
+$modal-h2-font-size:              to-em(floor(modular-scale(1, $modal-base-font-size, 1.125)), $modal-base-font-size);
+$modal-h3-font-size:              to-em(floor(modular-scale(-2, $modal-base-font-size, 1.125)), $modal-base-font-size);
+$panel-button-font-size:          14;
+$strap-title-font-size:           16;
+$strap-cta-font-size:             14;
+$strap-menu-items-font-size:      14;
+$balloon-base-size:               10;
 
 // Z-Index
 // --------------------------------------------------
@@ -54,6 +60,7 @@ $widget-strap-gutter:  15px;
 $global-border-radius:    2px;
 $pill-border-radius:      50px;
 $balloon-arrow-height:    6px;
+$button-height:           32;
 
 $strap-height:            44;
 $strap-logo-width:        34;
@@ -66,6 +73,7 @@ $modal-max-width:         640;
 $modal-header-height:     72;
 $modal-tabs-height:       48;
 $modal-aspect-ratio:      16 / 9;
+
 
 // Margins and paddings
 $strap-logo-vert-margin:            ($strap-height - $strap-logo-height) * 1 / 2;
@@ -93,7 +101,21 @@ $modal-tabs-padding:                ($modal-tabs-height - $modal-tabs-font-size)
 //------------------------------------------------------------------------------
 
 // Private vars
-$white: #fff;
+$black:       #000;
+$dark-gray:   #494b4c;
+$fog:         #ccc;
+$green:       #00a66c;
+$hotpink:     #ff6bb5;
+$light-fog:   #f5f5f5;
+$light-gray:  #a4a5a5;
+$medium-fog:  #e0e0e0;
+$medium-gray: #676869;
+$off-black:   #1c1e1f;
+$print-fog:   #999;
+$seafoam:     #33b787;
+$white:       #fff;
+$white:       #fff;
+$whitesmoke:  #f5f5f5;
 
 // Strap
 $strap-bg-color-hue:              240;
@@ -107,15 +129,15 @@ $strap-gradient-bottom-color:     hsla($strap-bg-color-hue, $strap-bg-color-sat,
 $strap-text-color:                hsla($strap-text-color-hue, $strap-text-color-sat, 38%, 1);
 $strap-text-color-emphasis:       hsla($strap-text-color-hue, $strap-text-color-sat, 22%, 1);
 
-$strap-cta-gradient-top-color:    hsla(178, 64%, 46%, 1);
-$strap-cta-gradient-bottom-color: hsla(168, 78%, 40%, 1);
+$strap-cta-gradient-top-color:    hsla(178, 64%, 44%, 1);
+$strap-cta-gradient-bottom-color: hsla(168, 78%, 38%, 1);
 $strap-cta-text-color:            hsla($strap-text-color-hue, $strap-text-color-sat, 98%, 1);
 
 $balloon-background-color:        hsla($strap-text-color-hue, $strap-text-color-sat, 34%, 1);
 $balloon-text-color:              hsla($strap-text-color-hue, $strap-text-color-sat, 98%, 1);
 
 // Modal
-$overlay-bg-color-hue:            204;
+$overlay-bg-color-hue:            200;
 $overlay-bg-color-sat:            10%;
 $overlay-bg-color-alpha:          0.75;
 
@@ -124,6 +146,9 @@ $tabs-bg-color-sat:               30%;
 $tabs-text-color-hue:             200;
 $tabs-text-color-sat:             20%;
 
+$panel-text-color-hue:            200;
+$panel-text-color-sat:            20%;
+
 $overlay-bg-color:                hsla($overlay-bg-color-hue, $overlay-bg-color-sat, 18%, $overlay-bg-color-alpha);
 $modal-header-bg-color:           hsla($overlay-bg-color-hue, 18%, 33%, 0.86);
 $modal-header-text-color:         white(0.7);
@@ -131,13 +156,17 @@ $modal-header-text-color:         white(0.7);
 $tabs-highlight-color:            hsla($tabs-bg-color-hue, $tabs-bg-color-sat, 98%, 1);
 $tabs-gradient-top-color:         hsla($tabs-bg-color-hue, $tabs-bg-color-sat, 94%, 1);
 $tabs-gradient-bottom-color:      hsla($tabs-bg-color-hue, $tabs-bg-color-sat, 90%, 1);
-$tabs-text-color:                 hsla($tabs-text-color-hue, $tabs-text-color-sat, 38%, 1);
+$tabs-text-color:                 hsla($tabs-text-color-hue, $tabs-text-color-sat, 33%, 1);
 $tabs-text-color-emphasis:        hsla($tabs-text-color-hue, $tabs-text-color-sat, 22%, 1);
-$tabs-border-color:               hsla($overlay-bg-color-hue, 18%, 73%, 1);
+$tabs-border-color:               hsla($overlay-bg-color-hue, 18%, 76%, 1);
 $tabs-border-color-enter:         hsla($overlay-bg-color-hue, 18%, 54%, 1);
 $tabs-border-color-active:        hsla($overlay-bg-color-hue, 18%, 33%, 1);
 
 $panel-base-bg-color:             hsla($tabs-bg-color-hue, $tabs-bg-color-sat, 96%, 1);
+$panel-base-text-color:           hsla($panel-text-color-hue, $panel-text-color-sat, 33%, 1);
+$panel-headings-color:            hsla($panel-text-color-hue, $panel-text-color-sat, 42%, 1);
+$panel-link-text-color:           darken($panel-base-text-color, 15);
+$panel-link-text-color-enter:     $black;
 
 // Miscellaneous
 //------------------------------------------------------------------------------

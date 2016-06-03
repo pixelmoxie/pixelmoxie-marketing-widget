@@ -1,5 +1,6 @@
 @custom-selector :--anylink :link, :visited;
 @custom-selector :--enter :hover, :focus;
+@custom-selector :--headings h1, h2, h3, h4, h5, h6;
 
 // Reset
 [class~="pmxWidget"] {
@@ -24,5 +25,10 @@
 		color: inherit;
 		pointer-events: none;
 		fill: currentColor;
+	}
+
+	::selection {
+		color: $light-fog;
+		background-color: rgba($off-black, 0.9);
 	}
 }
