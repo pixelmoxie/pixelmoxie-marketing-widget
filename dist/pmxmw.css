@@ -182,8 +182,9 @@ PixelMoxie Widget Strap
 	display: block;
 	margin: 15px;
 	border-radius: 50px;
-	background: -webkit-linear-gradient(top, #eeeef6, #e1e1ef);
-	background: linear-gradient(to bottom, #eeeef6, #e1e1ef);
+	background: #e1e1ef;
+	background-image: -webkit-linear-gradient(top, #eeeef6, #e1e1ef);
+	background-image: linear-gradient(to bottom, #eeeef6, #e1e1ef);
 	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 	font-size: 0;
 	opacity: 1;
@@ -191,6 +192,8 @@ PixelMoxie Widget Strap
 	transition: all 0.2s cubic-bezier(0.455, 0.03, 0.515, 0.955) 0.6s;
 	-webkit-transform: translateY(0) scale(1);
 	        transform: translateY(0) scale(1);
+	-webkit-animation: strap-enter 0.2s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+	        animation: strap-enter 0.2s cubic-bezier(0.455, 0.03, 0.515, 0.955);
 
 	-webkit-backface-visibility: hidden;
 	        backface-visibility: hidden;
@@ -243,8 +246,9 @@ PixelMoxie Widget Strap
 	margin: 0.5714285714em 0.7142857143em 0.5714285714em 0;
 	padding: 0.5em 1em;
 	border-radius: 50px;
-	background: -webkit-linear-gradient(top, #28b8b3, #15ac8e);
-	background: linear-gradient(to bottom, #28b8b3, #15ac8e);
+	background: #15ac8e;
+	background-image: -webkit-linear-gradient(top, #28b8b3, #15ac8e);
+	background-image: linear-gradient(to bottom, #28b8b3, #15ac8e);
 	box-shadow: inset 0 0 0 1px rgba(78, 103, 116, 0.1);
 	color: #f9fafb;
 	text-decoration: none;
@@ -295,6 +299,32 @@ PixelMoxie Widget Strap
 
 .pmxWidgetStrap-menuItem:last-of-type {
 	margin-right: 0.7142857143em;
+}
+
+@-webkit-keyframes strap-enter {
+	0% {
+		opacity: 0;
+		-webkit-transform: translateY(20%) scale(0.9);
+		        transform: translateY(20%) scale(0.9);
+	}
+	100% {
+		opacity: 1;
+		-webkit-transform: translateY(0) scale(1);
+		        transform: translateY(0) scale(1);
+	}
+}
+
+@keyframes strap-enter {
+	0% {
+		opacity: 0;
+		-webkit-transform: translateY(20%) scale(0.9);
+		        transform: translateY(20%) scale(0.9);
+	}
+	100% {
+		opacity: 1;
+		-webkit-transform: translateY(0) scale(1);
+		        transform: translateY(0) scale(1);
+	}
 }
 
 /*
@@ -496,8 +526,9 @@ PixelMoxie Widget Modal
 .pmxWidgetModal-tabs {
 	margin: 0;
 	padding: 0;
-	background: -webkit-linear-gradient(top, #ebebf4, #dedeed);
-	background: linear-gradient(to bottom, #ebebf4, #dedeed);
+	background: #dedeed;
+	background-image: -webkit-linear-gradient(top, #ebebf4, #dedeed);
+	background-image: linear-gradient(to bottom, #ebebf4, #dedeed);
 	box-shadow: inset 0 1px 0 0 #f8f8fb;
 	list-style-type: none;
 	font-size: 0;
@@ -650,12 +681,12 @@ PixelMoxie Widget Modal
 	background-size: 100% 1.375em;
 }
 
-.rte * {
+.rte > * {
 	margin: 0;
 	padding: 0;
 }
 
-.rte * + * {
+.rte > * + * {
 	margin-top: 1.03125em;
 }
 
@@ -693,12 +724,12 @@ PixelMoxie Widget Modal
 	line-height: 1.2222222222;
 }
 
-.rte p + h2 {
-	margin-top: 1.8333333333em;
-}
-
 .rte h2 + p {
 	margin-top: 0.6875em;
+}
+
+.rte p + h2 {
+	margin-top: 1.8333333333em;
 }
 
 .rte h3 {

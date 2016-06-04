@@ -99,7 +99,8 @@
 	margin: 0;
 	font-size: 0;
 	list-style-type: none;
-	background: linear-gradient(to bottom, $tabs-gradient-top-color, $tabs-gradient-bottom-color);
+	background: $tabs-gradient-bottom-color;
+	background-image: linear-gradient(to bottom, $tabs-gradient-top-color, $tabs-gradient-bottom-color);
 	box-shadow: inset 0 1px 0 0 $tabs-highlight-color;
 }
 

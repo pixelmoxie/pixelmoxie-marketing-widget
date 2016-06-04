@@ -10,6 +10,8 @@ module.exports = ( grunt, config ) ->
           'underscore/underscore.js'
           'backbone/backbone.js'
           'jquery.transit/jquery.transit.js'
+          'loadcss/src/loadCSS.js'
+          'loadcss/src/onloadCSS.js'
         ]
         dest: '<%= paths.concat %>'
       }

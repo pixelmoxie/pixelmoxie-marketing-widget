@@ -5,6 +5,8 @@ module.exports = ( grunt, config ) ->
       '<%= paths.concat %>underscore.js'
       '<%= paths.concat %>backbone.js'
       '<%= paths.concat %>jquery.transit.js'
+      '<%= paths.concat %>loadCSS.js'
+      '<%= paths.concat %>onloadCSS.js'
       '<%= paths.tmp %>compiled.js'
     ]
     dest: '<%= paths.dist %>pmxmw.js'
