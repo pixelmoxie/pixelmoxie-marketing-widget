@@ -4,6 +4,7 @@ class PMXMW.WidgetView extends pmxmwBackbone.View
     'click .pmxWidgetStrap-trigger' : 'showModal'
     'click .pmxWidgetOverlay'       : 'hideModal'
     'click .pmxWidgetModal-trigger' : 'navigationTriggered'
+    'change input'                  : 'demoSettingTriggered'
 
   initialize: ->
     @$window            = selectors.get window
@@ -14,7 +15,7 @@ class PMXMW.WidgetView extends pmxmwBackbone.View
     @useCSSTransforms3d = @$html.hasClass 'csstransforms3d'
 
     @baseURL            = "http://localhost:8000/"
-    @dataURL            = "https://cdn.rawgit.com/pixelmoxie/pixelmoxie-marketing-widget/082f46a/dist/data.xml"
+    @dataURL            = "https://cdn.rawgit.com/pixelmoxie/pixelmoxie-marketing-widget/115d77a/dist/data.xml"
     # @dataURL            = "#{@baseURL}data.xml"
     @cssURL             = "#{@baseURL}pmxmw.css"
     @themeName          = window.themeInfo.name
@@ -102,7 +103,7 @@ class PMXMW.WidgetView extends pmxmwBackbone.View
               <div id="pmxw-settings" class="pmxWidgetModal-section pmxWidgetModal-settingsSection">
                 <div class="pmxWidgetModal-sectionBody rte">
                   #{data.themes.theme.modal.settings.description}
-                  <div class="pmxWidgetModal-settingsControls"></div>
+                  <div class="pmxWidgetModal-controls"></div>
                 </div>
               </div>
               """ }
@@ -156,7 +157,49 @@ class PMXMW.WidgetView extends pmxmwBackbone.View
     """
     # coffeelint: enable=max_line_length
     @$body.append widgetMarkup
+    @buildSettingsControls data.themes.theme.modal.settings.controls
     return
+
+  buildSettingsControls: ( controls ) ->
+    markup = ""
+    pmxmwUnderscore.each controls, ( inst ) =>
+      if pmxmwUnderscore.isArray inst
+        pmxmwUnderscore.each inst, ( ctrl ) =>
+          markup += @getControl ctrl
+          return
+      else
+        markup += "<div class=\"pmxWidgetModal-controlGroup\">\n"
+        if inst.title then markup += "<h3 class=\"pmxWidgetModal-controlGroupTitle\">#{inst.title}</h3>\n"
+        pmxmwUnderscore.each inst.control, ( ctrl ) =>
+          markup += @getControl ctrl
+          return
+        markup += "</div>\n"
+      return
+    pmxmwUnderscore.defer =>
+      (@$ '.pmxWidgetModal-controls').html markup
+      return
+    return
+
+  getControl: ( ctrl ) ->
+    if 'checkbox' is ctrl.type
+      markup = """
+      <div class="pmxWidgetModal-controlWrap">
+        <label class="pmxWidgetModal-control pmxWidgetModal-switch">#{ctrl.content}
+          <input type="checkbox" id="#{ctrl.name}"#{ if ctrl.checked then ' checked="checked"' else '' }/>
+          <div class="pmxWidgetModal-controlIndicator"><small></small></div>
+        </label>\n
+      </div>\n
+      """
+    else if 'radio' is ctrl.type
+      markup = """
+      <div class="pmxWidgetModal-controlWrap">
+        <label class="pmxWidgetModal-control pmxWidgetModal-radio">#{ctrl.content}
+          <input type="radio" id="#{ctrl.id}" name="#{ctrl.name}"#{ if ctrl.checked then ' checked="checked"' else '' }/>
+          <div class="pmxWidgetModal-controlIndicator"><small></small></div>
+        </label>
+      </div>\n
+      """
+    markup
 
   setupView: ->
     @.setElement selectors.get( '.pmxWidget' ).last()
@@ -235,10 +278,24 @@ class PMXMW.WidgetView extends pmxmwBackbone.View
       }, 500, 'cubic-bezier(0.075, 0.820, 0.165, 1.000)'
     return
 
+  demoSettingTriggered: ( event ) ->
+    eventHandle = String( event.target.name || event.target.id ).toLowerCase().replace(/ /g, '_')
+    eventValue  = if 'checkbox' is event.target.type then event.target.checked else String( event.target.id ).toLowerCase()
+    @$el.trigger "pmxmw:#{eventHandle}", [ eventValue ]
+    return
+
   setupEvents: ->
     @$window.on 'resize orientationchange', pmxmwUnderscore.debounce (=>
       @layout()
       @navigateTo @activeIndex, true
       return
     ), 150
+
+    # selectors.get( document ).on 'pmxmw:color_scheme pmxmw:center_project_expander', ( event, val ) ->
+    #   console.log "#{event.type}: #{val}"
+    #   return
+
+    pmxmwUnderscore.delay (=>
+      (@$ '.pmxWidgetStrap-trigger--settings').trigger 'click'
+    ), 500
     return

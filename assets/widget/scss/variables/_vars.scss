@@ -19,7 +19,7 @@ $modal-base-line-height:          22;
 $modal-base-line-height-unitless: $modal-base-line-height / $modal-base-font-size;
 $modal-h1-font-size:              to-em(floor(modular-scale(2, $modal-base-font-size, 1.125)), $modal-base-font-size);
 $modal-h2-font-size:              to-em(floor(modular-scale(1, $modal-base-font-size, 1.125)), $modal-base-font-size);
-$modal-h3-font-size:              to-em(floor(modular-scale(-2, $modal-base-font-size, 1.125)), $modal-base-font-size);
+$modal-h3-font-size:              to-em(floor(modular-scale(-1, $modal-base-font-size, 1.125)), $modal-base-font-size);
 $panel-button-font-size:          14;
 $strap-title-font-size:           16;
 $strap-cta-font-size:             14;
@@ -61,6 +61,7 @@ $global-border-radius:    2px;
 $pill-border-radius:      50px;
 $balloon-arrow-height:    6px;
 $button-height:           32;
+$controls-size:           20;
 
 $strap-height:            44;
 $strap-logo-width:        34;
@@ -73,7 +74,6 @@ $modal-max-width:         640;
 $modal-header-height:     72;
 $modal-tabs-height:       48;
 $modal-aspect-ratio:      16 / 9;
-
 
 // Margins and paddings
 $strap-logo-vert-margin:            ($strap-height - $strap-logo-height) * 1 / 2;
@@ -108,7 +108,7 @@ $green:       #00a66c;
 $hotpink:     #ff6bb5;
 $light-fog:   #f5f5f5;
 $light-gray:  #a4a5a5;
-$medium-fog:  #e0e0e0;
+$medium-fog:  #ccc;
 $medium-gray: #676869;
 $off-black:   #1c1e1f;
 $print-fog:   #999;
@@ -164,9 +164,20 @@ $tabs-border-color-active:        hsla($overlay-bg-color-hue, 18%, 33%, 1);
 
 $panel-base-bg-color:             hsla($tabs-bg-color-hue, $tabs-bg-color-sat, 96%, 1);
 $panel-base-text-color:           hsla($panel-text-color-hue, $panel-text-color-sat, 33%, 1);
+$panel-base-text-color-emphasis:  hsla($panel-text-color-hue, $panel-text-color-sat, 22%, 1);
 $panel-headings-color:            hsla($panel-text-color-hue, $panel-text-color-sat, 42%, 1);
 $panel-link-text-color:           darken($panel-base-text-color, 15);
 $panel-link-text-color-enter:     $black;
+
+// Switches
+$switch-bg-color:                   $light-fog;
+$switch-bg-color-enter:             darken($switch-bg-color, 5);
+$switch-bg-color-checked:           $seafoam;
+$switch-bg-color-checked-enter:     darken($switch-bg-color-checked, 5);
+$switch-border-color:               $medium-fog;
+$switch-border-color-enter:         darken($switch-border-color, 5);
+$switch-border-color-checked:       $seafoam;
+$switch-border-color-checked-enter: darken($switch-border-color-checked, 5);
 
 // Miscellaneous
 //------------------------------------------------------------------------------

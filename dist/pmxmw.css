@@ -696,11 +696,12 @@ PixelMoxie Widget Modal
 .rte h4,
 .rte h5,
 .rte h6 {
-	margin-top: 1.8333333333em;
+	margin-top: 1.5714285714em;
+	margin-bottom: 0;
 	color: #567281;
 	font-weight: 600;
-	font-size: 0.75em;
-	line-height: 1.8333333333;
+	font-size: 0.875em;
+	line-height: 1.5714285714;
 }
 
 .rte h1:first-child,
@@ -804,4 +805,138 @@ PixelMoxie Widget Modal
 .rte .button:hover,
 .rte .button:focus {
 	opacity: 0.86;
+}
+
+.pmxWidgetModal-controls,
+.pmxWidgetModal-controlGroup,
+.pmxWidgetModal-controlGroupTitle {
+	margin-top: 1.375em;
+}
+
+.pmxWidgetModal-controlGroupTitle + .pmxWidgetModal-controlWrap {
+	margin-top: 0.6875em;
+}
+
+.pmxWidgetModal-controls::after {
+	display: table;
+	clear: both;
+	content: "";
+}
+
+.pmxWidgetModal-controlGroup {
+	display: block;
+	float: left;
+	width: 47.5%;
+}
+
+.pmxWidgetModal-controlGroup:nth-child(even) {
+	margin-right: 5%;
+}
+
+.pmxWidgetModal-controlWrap {
+	display: block;
+}
+
+.pmxWidgetModal-controlWrap + .pmxWidgetModal-controlWrap {
+	margin-top: 0.6875em;
+}
+
+.pmxWidgetModal-control {
+	position: relative;
+	display: inline-block;
+	padding-right: 0.5em;
+	padding-left: 1.875em;
+	font-weight: 600;
+	cursor: pointer;
+	-webkit-transition: color 0.2s;
+	transition: color 0.2s;
+
+	-webkit-user-select: none;
+	   -moz-user-select: none;
+	    -ms-user-select: none;
+	        user-select: none;
+}
+
+.pmxWidgetModal-control input {
+	position: absolute;
+	z-index: -1;
+	opacity: 0;
+}
+
+.pmxWidgetModal-controlIndicator {
+	position: absolute;
+	top: 0;
+	left: 0;
+	box-sizing: content-box;
+	width: 1.25em;
+	height: 1.25em;
+	background-color: #33b787;
+	background-clip: content-box;
+}
+
+.pmxWidgetModal-radio,
+.pmxWidgetModal-switch {
+	padding-left: 2.6875em;
+}
+
+.pmxWidgetModal-radio .pmxWidgetModal-controlIndicator,
+.pmxWidgetModal-switch .pmxWidgetModal-controlIndicator {
+	width: 2.0625em;
+	border: 1px solid #ccc;
+	border-radius: 50px;
+	background-color: #f5f5f5;
+	-webkit-transition: border 0.4s, box-shadow 0.4s, background 0.2s;
+	transition: border 0.4s, box-shadow 0.4s, background 0.2s;
+}
+
+.pmxWidgetModal-radio .pmxWidgetModal-controlIndicator small,
+.pmxWidgetModal-switch .pmxWidgetModal-controlIndicator small {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 1.25em;
+	height: 1.25em;
+	border-radius: 50px;
+	background-color: #fff;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+	font-size: 1em;
+	-webkit-transition: left 0.2s;
+	transition: left 0.2s;
+}
+
+.pmxWidgetModal-control:hover {
+	color: #2d3c43;
+}
+
+.pmxWidgetModal-radio:hover input ~ .pmxWidgetModal-controlIndicator,
+.pmxWidgetModal-radio input:focus ~ .pmxWidgetModal-controlIndicator,
+.pmxWidgetModal-switch:hover input ~ .pmxWidgetModal-controlIndicator,
+.pmxWidgetModal-switch input:focus ~ .pmxWidgetModal-controlIndicator {
+	border-color: #bfbfbf;
+	background-color: #e8e8e8;
+	-webkit-transition: border 0.4s, box-shadow 0.4s, background 0.2s;
+	transition: border 0.4s, box-shadow 0.4s, background 0.2s;
+}
+
+.pmxWidgetModal-radio input:checked ~ .pmxWidgetModal-controlIndicator,
+.pmxWidgetModal-switch input:checked ~ .pmxWidgetModal-controlIndicator {
+	border-color: #33b787;
+	background-color: #33b787;
+	box-shadow: inset 0 0 0 10px #33b787;
+	-webkit-transition: border 0.4s, box-shadow 0.4s, background 1.2s;
+	transition: border 0.4s, box-shadow 0.4s, background 1.2s;
+}
+
+.pmxWidgetModal-radio input:checked ~ .pmxWidgetModal-controlIndicator small,
+.pmxWidgetModal-switch input:checked ~ .pmxWidgetModal-controlIndicator small {
+	left: 13px;
+}
+
+.pmxWidgetModal-radio:hover input:not([disabled]):checked ~ .pmxWidgetModal-controlIndicator,
+.pmxWidgetModal-radio input:checked:focus ~ .pmxWidgetModal-controlIndicator,
+.pmxWidgetModal-switch:hover input:not([disabled]):checked ~ .pmxWidgetModal-controlIndicator,
+.pmxWidgetModal-switch input:checked:focus ~ .pmxWidgetModal-controlIndicator {
+	border-color: #2da378;
+	background-color: #2da378;
+	box-shadow: inset 0 0 0 10px #2da378;
 }
