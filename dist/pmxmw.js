@@ -4408,7 +4408,7 @@ function onloadCSS( ss, callback ) {
       this.useCSSTransforms = this.$html.hasClass('csstransforms');
       this.useCSSTransforms3d = this.$html.hasClass('csstransforms3d');
       this.baseURL = "http://localhost:8000/";
-      this.dataURL = "https://cdn.rawgit.com/pixelmoxie/pixelmoxie-marketing-widget/115d77a/dist/data.xml";
+      this.dataURL = "https://cdn.rawgit.com/pixelmoxie/pixelmoxie-marketing-widget/bee3fcb/dist/data.xml";
       this.cssURL = this.baseURL + "pmxmw.css";
       this.themeName = window.themeInfo.name;
       this.themeVersion = window.themeInfo.version;
@@ -4422,7 +4422,7 @@ function onloadCSS( ss, callback ) {
       if (!this.$body.hasClass('has-marketing-widget')) {
         this.$body.addClass('has-marketing-widget');
       }
-      ajaxQuery = "SELECT features-title, support-title, settings-title, themes.theme from xml WHERE url=\"" + this.dataURL + "\" and themes.theme.title=\"" + this.themeName + "\"";
+      ajaxQuery = "SELECT features-title, support-title, settings-title, demo-settings-title, themes.theme from xml WHERE url=\"" + this.dataURL + "\" and themes.theme.title=\"" + this.themeName + "\"";
       ajaxURL = "http://query.yahooapis.com/v1/public/yql?q=" + encodeURIComponent(ajaxQuery) + "&format=json&callback=?";
       $.ajax({
         url: ajaxURL,
@@ -4464,7 +4464,7 @@ function onloadCSS( ss, callback ) {
 
     WidgetView.prototype.buildWidget = function(data) {
       var widgetMarkup;
-      widgetMarkup = "<div class=\"pmxWidget\" style=\"display: none;\">\n  <div class=\"pmxWidgetModal\">\n    <div class=\"pmxWidgetModal-contentWrap\">\n      <header class=\"pmxWidgetModal-header\">\n        <h1 class=\"pmxWidgetModal-themeName\">" + data.themes.theme.title + "</h1>\n      </header>\n      <nav class=\"pmxWidgetModal-nav\">\n        <ul class=\"pmxWidgetModal-tabs\">\n          <li class=\"pmxWidgetModal-tab\">\n            <a class=\"pmxWidgetModal-trigger isActive\" href=\"#pmxw-features\">" + data['features-title'] + "</a>\n          </li>\n          <li class=\"pmxWidgetModal-tab\">\n            <a class=\"pmxWidgetModal-trigger\" href=\"#pmxw-support\">" + data['support-title'] + "</a>\n          </li>\n          " + (data.themes.theme.modal.settings ? "<li class=\"pmxWidgetModal-tab\">\n  <a class=\"pmxWidgetModal-trigger\" href=\"#pmxw-settings\">" + data['settings-title'] + "</a>\n</li>" : void 0) + "\n        </ul>\n      </nav>\n      <div class=\"pmxWidgetModal-viewport\">\n        <div class=\"pmxWidgetModal-content\">\n          <div id=\"pmxw-features\" class=\"pmxWidgetModal-section pmxWidgetModal-featuresSection isActive\">\n            <div class=\"pmxWidgetModal-sectionBody rte\">\n              " + data.themes.theme.modal.features.description + "\n            </div>\n          </div>\n          <div id=\"pmxw-support\" class=\"pmxWidgetModal-section pmxWidgetModal-supportSection\">\n            <div class=\"pmxWidgetModal-sectionBody rte\">\n              " + data.themes.theme.modal.support.description + "\n            </div>\n          </div>\n          " + (data.themes.theme.modal.settings ? "<div id=\"pmxw-settings\" class=\"pmxWidgetModal-section pmxWidgetModal-settingsSection\">\n  <div class=\"pmxWidgetModal-sectionBody rte\">\n    " + data.themes.theme.modal.settings.description + "\n    <div class=\"pmxWidgetModal-controls\"></div>\n  </div>\n</div>" : void 0) + "\n        </div>\n      </div>\n      <footer class=\"pmxWidgetModal-footer\"></footer>\n    </div>\n  </div><!-- .pmxWidgetModal -->\n  <div class=\"pmxWidgetOverlay\">\n    <div class=\"pmxWidgetOverlay-close\">\n      <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"36\" height=\"36\" viewBox=\"0 0 36 36\">\n        <path d=\"M26.1,12l-6,6l6,6L24,26.1l-6-6l-6,6L9.9,24l6-6l-6-6L12,9.9l6,6l6-6L26.1,12z\"/>\n      </svg>\n    </div>\n  </div><!-- .pmxWidgetOverlay -->\n    <div class=\"pmxWidgetStrap\">\n      <div class=\"pmxWidgetStrap-segment pmxWidgetStrap-branding\">\n        <a class=\"pmxWidgetStrap-logo\" href=\"http://www.pixelmoxie.net\" target=\"_blank\">\n          <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"56\" height=\"40\" viewBox=\"0 0 56 40\">\n            <path d=\"M52.6 3.4C50.3 1.1 47.3 0 44.4 0c-3 0-5.9 1.1-8.2 3.4L28 11.6l-8.2-8.2C17.6 1.1 14.6 0 11.6 0S5.7 1.1 3.4 3.4C1.1 5.7 0 8.6 0 11.6c0 3 1.1 5.9 3.4 8.2L20.6 37c4.1 4.1 10.7 4.1 14.7 0l17.2-17.2c2.2-2.2 3.3-5 3.4-7.9.1-3.1-1-6.2-3.3-8.5zM30.5 18.9c1.4 1.4 1.4 3.6 0 4.9-.6.7-1.5 1-2.5 1s-1.8-.4-2.5-1c-1.4-1.4-1.4-3.6 0-4.9l2.5-2.5 2.5 2.5zM50.1 5.8c3.2 3.2 3.2 8.3 0 11.5L32.9 34.5c-2.7 2.7-7.1 2.7-9.8 0L5.9 17.3C2.7 14.1 2.7 9 5.9 5.8c3.2-3.2 8.3-3.2 11.5 0l8.2 8.2-2.5 2.5c-1.3 1.3-2 3.1-2 4.9s.7 3.6 2 4.9c2.7 2.7 7.1 2.7 9.8 0 1.3-1.3 2-3.1 2-4.9 0-1.8-.7-3.6-2-4.9L30.5 14l8.2-8.2c3.1-3.1 8.2-3.1 11.4 0z\"></path>\n          </svg>\n        </a>\n      </div>\n      <div class=\"pmxWidgetStrap-segment pmxWidgetStrap-title\">\n        <h4 class=\"pmxWidgetStrap-themeName\">" + data.themes.theme.title + "</h4>\n      </div>\n      <div class=\"pmxWidgetStrap-segment pmxWidgetStrap-actions\">\n        <a class=\"pmxWidgetStrap-cta\" href=\"javascript:;\" target=\"_blank\">Buy Now<span class=\"pmxWidgetStrap-cartIcon\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"13\" height=\"12\" viewBox=\"0 0 13 12\"><path d=\"M4 1c-.1-.6-.6-1-1.2-1H1C.5 0 0 .4 0 1s.4 1 1 1h1l.8 4.2c.1.5.6.8 1 .8h7.4c.5 0 .9-.3 1-.8l.8-4c.1-.3 0-.6-.2-.8-.2-.3-.5-.4-.8-.4H4z\"></path><circle cx=\"10.5\" cy=\"10.5\" r=\"1.5\"></circle><circle cx=\"4.5\" cy=\"10.5\" r=\"1.5\"></circle></svg></span></a>\n      </div>\n      <div class=\"pmxWidgetStrap-segment pmxWidgetStrap-nav\">\n        <ul class=\"pmxWidgetStrap-menu\">\n          <li class=\"pmxWidgetStrap-menuItem\">\n            <a class=\"pmxWidgetStrap-trigger\" href=\"#pmx-features\">" + data['features-title'] + "</a>\n          </li>\n          <li class=\"pmxWidgetStrap-menuItem\">\n            <a class=\"pmxWidgetStrap-trigger\" href=\"#pmx-support\">" + data['support-title'] + "</a>\n          </li>\n          " + (data.themes.theme.modal.settings ? "<li class=\"pmxWidgetStrap-menuItem\" data-pmw-balloon=\"Demo Settings\" data-pmw-balloon-pos=\"right-edge\">\n  <a class=\"pmxWidgetStrap-trigger pmxWidgetStrap-trigger--settings\" href=\"#pmx-settings\">\n    <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\">\n      <path d=\"M15 4h-2c-.6 0-1 .4-1 1s.4 1 1 1h2c.6 0 1-.4 1-1s-.4-1-1-1zm-6 6H7c-.6 0-1 .4-1 1s.4 1 1 1h2c.6 0 1-.4 1-1s-.4-1-1-1zM3 6H1c-.6 0-1 .4-1 1s.4 1 1 1h2c.6 0 1-.4 1-1s-.4-1-1-1zm11 1c-.6 0-1 .4-1 1v7c0 .6.4 1 1 1s1-.4 1-1V8c0-.6-.4-1-1-1zm0-4c.6 0 1-.4 1-1V1c0-.6-.4-1-1-1s-1 .4-1 1v1c0 .6.4 1 1 1zM8 9c.6 0 1-.4 1-1V1c0-.6-.4-1-1-1S7 .4 7 1v7c0 .6.4 1 1 1zm0 4c-.6 0-1 .4-1 1v1c0 .6.4 1 1 1s1-.4 1-1v-1c0-.6-.4-1-1-1zM2 9c-.6 0-1 .4-1 1v5c0 .6.4 1 1 1s1-.4 1-1v-5c0-.6-.4-1-1-1zm0-4c.6 0 1-.4 1-1V1c0-.6-.4-1-1-1S1 .4 1 1v3c0 .6.4 1 1 1z\"></path>\n    </svg>\n  </a>\n</li>" : void 0) + "\n        </ul>\n      </div>\n    </div><!-- .pmxWidgetStrap -->\n</div><!-- .pmxWidget -->";
+      widgetMarkup = "<div class=\"pmxWidget\" style=\"display: none;\">\n  <div class=\"pmxWidgetModal\">\n    <div class=\"pmxWidgetModal-contentWrap\">\n      <header class=\"pmxWidgetModal-header\">\n        <h1 class=\"pmxWidgetModal-themeName\">" + data.themes.theme.title + "</h1>\n      </header>\n      <nav class=\"pmxWidgetModal-nav\">\n        <ul class=\"pmxWidgetModal-tabs\">\n          <li class=\"pmxWidgetModal-tab\">\n            <a class=\"pmxWidgetModal-trigger isActive\" href=\"#pmxw-features\">" + data['features-title'] + "</a>\n          </li>\n          <li class=\"pmxWidgetModal-tab\">\n            <a class=\"pmxWidgetModal-trigger\" href=\"#pmxw-support\">" + data['support-title'] + "</a>\n          </li>\n          " + (data.themes.theme.modal.settings ? "<li class=\"pmxWidgetModal-tab\">\n  <a class=\"pmxWidgetModal-trigger\" href=\"#pmxw-settings\">" + data['settings-title'] + "</a>\n</li>" : void 0) + "\n        </ul>\n      </nav>\n      <div class=\"pmxWidgetModal-viewport\">\n        <div class=\"pmxWidgetModal-content\">\n          <div id=\"pmxw-features\" class=\"pmxWidgetModal-section pmxWidgetModal-featuresSection isActive\">\n            <div class=\"pmxWidgetModal-sectionBody rte\">\n              " + data.themes.theme.modal.features.description + "\n            </div>\n          </div>\n          <div id=\"pmxw-support\" class=\"pmxWidgetModal-section pmxWidgetModal-supportSection\">\n            <div class=\"pmxWidgetModal-sectionBody rte\">\n              " + data.themes.theme.modal.support.description + "\n            </div>\n          </div>\n          " + (data.themes.theme.modal.settings ? "<div id=\"pmxw-settings\" class=\"pmxWidgetModal-section pmxWidgetModal-settingsSection\">\n  <div class=\"pmxWidgetModal-sectionBody rte\">\n    " + data.themes.theme.modal.settings.description + "\n    <div class=\"pmxWidgetModal-controls\"></div>\n  </div>\n</div>" : void 0) + "\n        </div>\n      </div>\n      <footer class=\"pmxWidgetModal-footer\"></footer>\n    </div>\n  </div><!-- .pmxWidgetModal -->\n  <div class=\"pmxWidgetOverlay\">\n    <div class=\"pmxWidgetOverlay-close\">\n      <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"36\" height=\"36\" viewBox=\"0 0 36 36\">\n        <path d=\"M26.1,12l-6,6l6,6L24,26.1l-6-6l-6,6L9.9,24l6-6l-6-6L12,9.9l6,6l6-6L26.1,12z\"/>\n      </svg>\n    </div>\n  </div><!-- .pmxWidgetOverlay -->\n    <div class=\"pmxWidgetStrap\">\n      <div class=\"pmxWidgetStrap-segment pmxWidgetStrap-branding\">\n        <a class=\"pmxWidgetStrap-logo\" href=\"http://www.pixelmoxie.net\" target=\"_blank\">\n          <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"56\" height=\"40\" viewBox=\"0 0 56 40\">\n            <path d=\"M52.6 3.4C50.3 1.1 47.3 0 44.4 0c-3 0-5.9 1.1-8.2 3.4L28 11.6l-8.2-8.2C17.6 1.1 14.6 0 11.6 0S5.7 1.1 3.4 3.4C1.1 5.7 0 8.6 0 11.6c0 3 1.1 5.9 3.4 8.2L20.6 37c4.1 4.1 10.7 4.1 14.7 0l17.2-17.2c2.2-2.2 3.3-5 3.4-7.9.1-3.1-1-6.2-3.3-8.5zM30.5 18.9c1.4 1.4 1.4 3.6 0 4.9-.6.7-1.5 1-2.5 1s-1.8-.4-2.5-1c-1.4-1.4-1.4-3.6 0-4.9l2.5-2.5 2.5 2.5zM50.1 5.8c3.2 3.2 3.2 8.3 0 11.5L32.9 34.5c-2.7 2.7-7.1 2.7-9.8 0L5.9 17.3C2.7 14.1 2.7 9 5.9 5.8c3.2-3.2 8.3-3.2 11.5 0l8.2 8.2-2.5 2.5c-1.3 1.3-2 3.1-2 4.9s.7 3.6 2 4.9c2.7 2.7 7.1 2.7 9.8 0 1.3-1.3 2-3.1 2-4.9 0-1.8-.7-3.6-2-4.9L30.5 14l8.2-8.2c3.1-3.1 8.2-3.1 11.4 0z\"></path>\n          </svg>\n        </a>\n      </div>\n      <div class=\"pmxWidgetStrap-segment pmxWidgetStrap-title\">\n        <h4 class=\"pmxWidgetStrap-themeName\">" + data.themes.theme.title + "</h4>\n      </div>\n      <div class=\"pmxWidgetStrap-segment pmxWidgetStrap-actions\">\n        <a class=\"pmxWidgetStrap-cta\" href=\"javascript:;\" target=\"_blank\">Buy Now<span class=\"pmxWidgetStrap-cartIcon\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"13\" height=\"12\" viewBox=\"0 0 13 12\"><path d=\"M4 1c-.1-.6-.6-1-1.2-1H1C.5 0 0 .4 0 1s.4 1 1 1h1l.8 4.2c.1.5.6.8 1 .8h7.4c.5 0 .9-.3 1-.8l.8-4c.1-.3 0-.6-.2-.8-.2-.3-.5-.4-.8-.4H4z\"></path><circle cx=\"10.5\" cy=\"10.5\" r=\"1.5\"></circle><circle cx=\"4.5\" cy=\"10.5\" r=\"1.5\"></circle></svg></span></a>\n      </div>\n      <div class=\"pmxWidgetStrap-segment pmxWidgetStrap-nav\">\n        <ul class=\"pmxWidgetStrap-menu\">\n          <li class=\"pmxWidgetStrap-menuItem\">\n            <a class=\"pmxWidgetStrap-trigger\" href=\"#pmx-features\">" + data['features-title'] + "</a>\n          </li>\n          <li class=\"pmxWidgetStrap-menuItem\">\n            <a class=\"pmxWidgetStrap-trigger\" href=\"#pmx-support\">" + data['support-title'] + "</a>\n          </li>\n          " + (data.themes.theme.modal.settings ? "<li class=\"pmxWidgetStrap-menuItem\" data-pmw-balloon=\"" + data['demo-settings-title'] + "\" data-pmw-balloon-pos=\"right-edge\">\n  <a class=\"pmxWidgetStrap-trigger pmxWidgetStrap-trigger--settings\" href=\"#pmx-settings\">\n    <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\">\n      <path d=\"M15 4h-2c-.6 0-1 .4-1 1s.4 1 1 1h2c.6 0 1-.4 1-1s-.4-1-1-1zm-6 6H7c-.6 0-1 .4-1 1s.4 1 1 1h2c.6 0 1-.4 1-1s-.4-1-1-1zM3 6H1c-.6 0-1 .4-1 1s.4 1 1 1h2c.6 0 1-.4 1-1s-.4-1-1-1zm11 1c-.6 0-1 .4-1 1v7c0 .6.4 1 1 1s1-.4 1-1V8c0-.6-.4-1-1-1zm0-4c.6 0 1-.4 1-1V1c0-.6-.4-1-1-1s-1 .4-1 1v1c0 .6.4 1 1 1zM8 9c.6 0 1-.4 1-1V1c0-.6-.4-1-1-1S7 .4 7 1v7c0 .6.4 1 1 1zm0 4c-.6 0-1 .4-1 1v1c0 .6.4 1 1 1s1-.4 1-1v-1c0-.6-.4-1-1-1zM2 9c-.6 0-1 .4-1 1v5c0 .6.4 1 1 1s1-.4 1-1v-5c0-.6-.4-1-1-1zm0-4c.6 0 1-.4 1-1V1c0-.6-.4-1-1-1S1 .4 1 1v3c0 .6.4 1 1 1z\"></path>\n    </svg>\n  </a>\n</li>" : void 0) + "\n        </ul>\n      </div>\n    </div><!-- .pmxWidgetStrap -->\n</div><!-- .pmxWidget -->";
       this.$body.append(widgetMarkup);
       pmxmwUnderscore.defer((function(_this) {
         return function() {
@@ -4480,20 +4480,19 @@ function onloadCSS( ss, callback ) {
       var markup;
       markup = "";
       pmxmwUnderscore.each(controls, (function(_this) {
-        return function(inst) {
-          if (pmxmwUnderscore.isArray(inst)) {
-            pmxmwUnderscore.each(inst, function(ctrl) {
-              markup += _this.getControl(ctrl);
-            });
-          } else {
-            markup += "<div class=\"pmxWidgetModal-controlGroup\">\n";
-            if (inst.title) {
-              markup += "<h3 class=\"pmxWidgetModal-controlGroupTitle\">" + inst.title + "</h3>\n";
+        return function(instance, key) {
+          if ('group' === key) {
+            if (pmxmwUnderscore.isArray(instance)) {
+              pmxmwUnderscore.each(instance, function(group, key) {
+                markup += _this.getControlGroup(group);
+              });
+            } else {
+              markup += _this.getControlGroup(instance);
             }
-            pmxmwUnderscore.each(inst.control, function(ctrl) {
-              markup += _this.getControl(ctrl);
+          } else if ('control' === key) {
+            pmxmwUnderscore.each(instance, function(control, key) {
+              markup += _this.getControl(control);
             });
-            markup += "</div>\n";
           }
         };
       })(this));
@@ -4504,12 +4503,32 @@ function onloadCSS( ss, callback ) {
       })(this));
     };
 
-    WidgetView.prototype.getControl = function(ctrl) {
+    WidgetView.prototype.getControlGroup = function(group) {
       var markup;
-      if ('checkbox' === ctrl.type) {
-        markup = "<div class=\"pmxWidgetModal-controlWrap\">\n  <label class=\"pmxWidgetModal-control pmxWidgetModal-switch\">" + ctrl.content + "\n    <input type=\"checkbox\" id=\"" + ctrl.name + "\"" + (ctrl.checked ? ' checked="checked"' : '') + "/>\n    <div class=\"pmxWidgetModal-controlIndicator\"><small></small></div>\n  </label>\n\n</div>\n";
-      } else if ('radio' === ctrl.type) {
-        markup = "<div class=\"pmxWidgetModal-controlWrap\">\n  <label class=\"pmxWidgetModal-control pmxWidgetModal-radio\">" + ctrl.content + "\n    <input type=\"radio\" id=\"" + ctrl.id + "\" name=\"" + ctrl.name + "\"" + (ctrl.checked ? ' checked="checked"' : '') + "/>\n    <div class=\"pmxWidgetModal-controlIndicator\"><small></small></div>\n  </label>\n</div>\n";
+      markup = "";
+      markup += "<div class=\"pmxWidgetModal-controlGroup\">\n";
+      if (group.title) {
+        markup += "<h3 class=\"pmxWidgetModal-controlGroupTitle\">" + group.title + "</h3>\n";
+      }
+      pmxmwUnderscore.each(group.control, (function(_this) {
+        return function(control) {
+          markup += _this.getControl(control);
+        };
+      })(this));
+      markup += "</div>\n";
+      return markup;
+    };
+
+    WidgetView.prototype.getControl = function(control) {
+      var markup;
+      if ('checkbox' === control.type) {
+        markup = "<div class=\"pmxWidgetModal-controlWrap\">\n  <label class=\"pmxWidgetModal-control pmxWidgetModal-switch\">" + control.content + "\n    <input type=\"checkbox\" id=\"" + control.name + "\"" + (control.checked ? ' checked="checked"' : '') + "/>\n    <div class=\"pmxWidgetModal-controlIndicator\"><small></small></div>\n  </label>\n\n</div>\n";
+      } else if ('radio' === control.type) {
+        markup = "<div class=\"pmxWidgetModal-controlWrap\">\n  <label class=\"pmxWidgetModal-control pmxWidgetModal-radio\">" + control.content + "\n    <input type=\"radio\" id=\"" + control.id + "\" name=\"" + control.name + "\"" + (control.checked ? ' checked="checked"' : '') + "/>\n    <div class=\"pmxWidgetModal-controlIndicator\"><small></small></div>\n  </label>\n</div>\n";
+      } else if ('swatch' === control.type) {
+        markup = "<div class=\"pmxWidgetModal-controlWrap pmxWidgetModal-swatchWrap\">\n  <label class=\"pmxWidgetModal-control pmxWidgetModal-swatch\">\n    <input type=\"radio\" id=\"" + control.id + "\" name=\"" + control.name + "\"" + (control.checked ? ' checked="checked"' : '') + "/>\n    <div class=\"pmxWidgetModal-controlIndicator\" style=\"background-color: " + control.content + ";\"><small>" + control.content + "</small></div>\n  </label>\n</div>\n";
+      } else {
+        return "";
       }
       return markup;
     };

@@ -15,7 +15,7 @@ class PMXMW.WidgetView extends pmxmwBackbone.View
     @useCSSTransforms3d = @$html.hasClass 'csstransforms3d'
 
     @baseURL            = "http://localhost:8000/"
-    @dataURL            = "https://cdn.rawgit.com/pixelmoxie/pixelmoxie-marketing-widget/115d77a/dist/data.xml"
+    @dataURL            = "https://cdn.rawgit.com/pixelmoxie/pixelmoxie-marketing-widget/bee3fcb/dist/data.xml"
     # @dataURL            = "#{@baseURL}data.xml"
     @cssURL             = "#{@baseURL}pmxmw.css"
     @themeName          = window.themeInfo.name
@@ -31,7 +31,7 @@ class PMXMW.WidgetView extends pmxmwBackbone.View
       @$body.addClass 'has-marketing-widget'
 
     # coffeelint: disable=max_line_length
-    ajaxQuery = "SELECT features-title, support-title, settings-title, themes.theme from xml WHERE url=\"#{@dataURL}\" and themes.theme.title=\"#{@themeName}\""
+    ajaxQuery = "SELECT features-title, support-title, settings-title, demo-settings-title, themes.theme from xml WHERE url=\"#{@dataURL}\" and themes.theme.title=\"#{@themeName}\""
     ajaxURL = "http://query.yahooapis.com/v1/public/yql?q=" + encodeURIComponent( ajaxQuery ) + "&format=json&callback=?"
     # coffeelint: enable=max_line_length
 
@@ -142,7 +142,7 @@ class PMXMW.WidgetView extends pmxmwBackbone.View
                 <a class="pmxWidgetStrap-trigger" href="#pmx-support">#{data['support-title']}</a>
               </li>
               #{ if data.themes.theme.modal.settings then """
-              <li class="pmxWidgetStrap-menuItem" data-pmw-balloon="Demo Settings" data-pmw-balloon-pos="right-edge">
+              <li class="pmxWidgetStrap-menuItem" data-pmw-balloon="#{data['demo-settings-title']}" data-pmw-balloon-pos="right-edge">
                 <a class="pmxWidgetStrap-trigger pmxWidgetStrap-trigger--settings" href="#pmx-settings">
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
                     <path d="M15 4h-2c-.6 0-1 .4-1 1s.4 1 1 1h2c.6 0 1-.4 1-1s-.4-1-1-1zm-6 6H7c-.6 0-1 .4-1 1s.4 1 1 1h2c.6 0 1-.4 1-1s-.4-1-1-1zM3 6H1c-.6 0-1 .4-1 1s.4 1 1 1h2c.6 0 1-.4 1-1s-.4-1-1-1zm11 1c-.6 0-1 .4-1 1v7c0 .6.4 1 1 1s1-.4 1-1V8c0-.6-.4-1-1-1zm0-4c.6 0 1-.4 1-1V1c0-.6-.4-1-1-1s-1 .4-1 1v1c0 .6.4 1 1 1zM8 9c.6 0 1-.4 1-1V1c0-.6-.4-1-1-1S7 .4 7 1v7c0 .6.4 1 1 1zm0 4c-.6 0-1 .4-1 1v1c0 .6.4 1 1 1s1-.4 1-1v-1c0-.6-.4-1-1-1zM2 9c-.6 0-1 .4-1 1v5c0 .6.4 1 1 1s1-.4 1-1v-5c0-.6-.4-1-1-1zm0-4c.6 0 1-.4 1-1V1c0-.6-.4-1-1-1S1 .4 1 1v3c0 .6.4 1 1 1z"></path>
@@ -166,44 +166,65 @@ class PMXMW.WidgetView extends pmxmwBackbone.View
 
   buildSettingsControls: ( controls ) ->
     markup = ""
-    pmxmwUnderscore.each controls, ( inst ) =>
-      if pmxmwUnderscore.isArray inst
-        pmxmwUnderscore.each inst, ( ctrl ) =>
-          markup += @getControl ctrl
+    pmxmwUnderscore.each controls, ( instance, key ) =>
+      if 'group' is key
+        if pmxmwUnderscore.isArray instance
+          pmxmwUnderscore.each instance, ( group, key ) =>
+            markup += @getControlGroup group
+            return
+        else
+          markup += @getControlGroup instance
+      else if 'control' is key
+        pmxmwUnderscore.each instance, ( control, key ) =>
+          markup += @getControl control
           return
-      else
-        markup += "<div class=\"pmxWidgetModal-controlGroup\">\n"
-        if inst.title then markup += "<h3 class=\"pmxWidgetModal-controlGroupTitle\">#{inst.title}</h3>\n"
-        pmxmwUnderscore.each inst.control, ( ctrl ) =>
-          markup += @getControl ctrl
-          return
-        markup += "</div>\n"
       return
     pmxmwUnderscore.defer =>
       (@$ '.pmxWidgetModal-controls').html markup
       return
     return
 
-  getControl: ( ctrl ) ->
-    if 'checkbox' is ctrl.type
+  getControlGroup: ( group ) ->
+    markup = ""
+    markup += "<div class=\"pmxWidgetModal-controlGroup\">\n"
+    if group.title then markup += "<h3 class=\"pmxWidgetModal-controlGroupTitle\">#{group.title}</h3>\n"
+    pmxmwUnderscore.each group.control, ( control ) =>
+      markup += @getControl control
+      return
+    markup += "</div>\n"
+    return markup
+
+  getControl: ( control ) ->
+    if 'checkbox' is control.type
       markup = """
       <div class="pmxWidgetModal-controlWrap">
-        <label class="pmxWidgetModal-control pmxWidgetModal-switch">#{ctrl.content}
-          <input type="checkbox" id="#{ctrl.name}"#{ if ctrl.checked then ' checked="checked"' else '' }/>
+        <label class="pmxWidgetModal-control pmxWidgetModal-switch">#{control.content}
+          <input type="checkbox" id="#{control.name}"#{ if control.checked then ' checked="checked"' else '' }/>
           <div class="pmxWidgetModal-controlIndicator"><small></small></div>
         </label>\n
       </div>\n
       """
-    else if 'radio' is ctrl.type
+    else if 'radio' is control.type
       markup = """
       <div class="pmxWidgetModal-controlWrap">
-        <label class="pmxWidgetModal-control pmxWidgetModal-radio">#{ctrl.content}
-          <input type="radio" id="#{ctrl.id}" name="#{ctrl.name}"#{ if ctrl.checked then ' checked="checked"' else '' }/>
+        <label class="pmxWidgetModal-control pmxWidgetModal-radio">#{control.content}
+          <input type="radio" id="#{control.id}" name="#{control.name}"#{ if control.checked then ' checked="checked"' else '' }/>
           <div class="pmxWidgetModal-controlIndicator"><small></small></div>
         </label>
       </div>\n
       """
-    markup
+    else if 'swatch' is control.type
+      markup = """
+      <div class="pmxWidgetModal-controlWrap pmxWidgetModal-swatchWrap">
+        <label class="pmxWidgetModal-control pmxWidgetModal-swatch">
+          <input type="radio" id="#{control.id}" name="#{control.name}"#{ if control.checked then ' checked="checked"' else '' }/>
+          <div class="pmxWidgetModal-controlIndicator" style="background-color: #{control.content};"><small>#{control.content}</small></div>
+        </label>
+      </div>\n
+      """
+    else
+      return ""
+    return markup
 
   setupView: ->
     @.setElement selectors.get( '.pmxWidget' ).last()
@@ -304,7 +325,7 @@ class PMXMW.WidgetView extends pmxmwBackbone.View
       return
     ), 150
 
-    # selectors.get( document ).on 'pmxmw:color_scheme pmxmw:center_project_expander', ( event, val ) ->
+    # selectors.get( document ).on 'pmxmw:color_scheme pmxmw:divider_style', ( event, val ) ->
     #   console.log "#{event.type}: #{val}"
     #   return
 

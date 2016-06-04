@@ -1,4 +1,9 @@
-.pmxWidgetModal-controls,
+.pmxWidgetModal-controls {
+	@include clearfix;
+	padding: 0;
+	margin: 0;
+}
+
 .pmxWidgetModal-controlGroup,
 .pmxWidgetModal-controlGroupTitle {
 	margin-top: $modal-base-line-height-unitless * 1em;
@@ -8,16 +13,13 @@
 	margin-top: $modal-base-line-height-unitless * 0.5em;
 }
 
-.pmxWidgetModal-controls {
-	@include clearfix;
-}
-
 .pmxWidgetModal-controlGroup {
+	@include clearfix;
 	display: block;
 	float: left;
 	width: 47.5%;
 
-	&:nth-child(even) {
+	&:nth-child(odd) {
 		margin-right: 5%;
 	}
 }
@@ -81,6 +83,38 @@
 	}
 }
 
+.pmxWidgetModal-swatchWrap {
+	display: block;
+	float: left;
+	margin: $modal-base-line-height-unitless * 0.5em $modal-base-line-height-unitless * 0.5em 0 0;
+}
+
+.pmxWidgetModal-swatch {
+	display: block;
+	padding: 0;
+
+	.pmxWidgetModal-controlIndicator {
+		@include size(to-em($swatches-size, $modal-base-font-size));
+		position: relative;
+		border: $swatches-border-width solid $switch-border-color;
+		border-radius: $pill-border-radius;
+		box-shadow: inset 0 0 0 $swatches-inset-width $light-fog;
+		box-sizing: border-box;
+		transition: border 0.3s;
+
+		small {
+			position: absolute;
+			width: 1px;
+			height: 1px;
+			padding: 0;
+			margin: -1px;
+			overflow: hidden;
+			clip: rect(0 0 0 0);
+			border: 0;
+		}
+	}
+}
+
 // Hover and focus states
 .pmxWidgetModal-control:hover {
 	color: $panel-base-text-color-emphasis;
@@ -95,6 +129,11 @@
 	transition: border 0.4s, box-shadow 0.4s, background 0.2s;
 }
 
+.pmxWidgetModal-swatch:hover input ~ .pmxWidgetModal-controlIndicator,
+.pmxWidgetModal-swatch input:focus ~ .pmxWidgetModal-controlIndicator {
+	border-color: $switch-border-color-enter;
+}
+
 // Checked state
 .pmxWidgetModal-radio input:checked ~ .pmxWidgetModal-controlIndicator,
 .pmxWidgetModal-switch input:checked ~ .pmxWidgetModal-controlIndicator {
@@ -106,6 +145,10 @@
 	small {
 		left: (floor($controls-size * 5 / 3) - $controls-size) * 1px;
 	}
+}
+
+[class~="pmxWidgetModal-swatch"] input:checked ~ .pmxWidgetModal-controlIndicator {
+	border-color: $light-gray;
 }
 
 // Hover state whilst checked
