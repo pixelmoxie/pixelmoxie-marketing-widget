@@ -4602,11 +4602,6 @@ function onloadCSS( ss, callback ) {
           _this.navigateTo(_this.activeIndex, true);
         };
       })(this)), 150));
-      pmxmwUnderscore.delay(((function(_this) {
-        return function() {
-          return (_this.$('.pmxWidgetStrap-trigger--settings')).trigger('click');
-        };
-      })(this)), 500);
     };
 
     return WidgetView;

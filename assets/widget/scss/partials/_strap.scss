@@ -25,7 +25,7 @@
 	opacity: 1;
 	transform: translateY(0) scale(1);
 	animation: strap-enter 0.2s $ease-in-out-quad;
-	transition: all 0.2s $ease-in-out-quad 0.6s;
+	transition: opacity 0.2s $ease-in-out-quad 0.6s, transform 0.2s $ease-in-out-quad 0.6s;
 	backface-visibility: hidden;
 
 	.showModal > & {
@@ -126,6 +126,46 @@
 	@include to-em(margin-right, $strap-menu-items-side-margin-last - $strap-menu-items-side-margin, $strap-menu-items-font-size);
 }
 
+// Small handheld styles
+@include respond-to(639, max) {
+	.has-marketing-widget {
+		padding-bottom: $strap-height * 1px;
+	}
+
+	.pmxWidgetStrap {
+		left: 0;
+		margin: 0;
+		border-radius: 0;
+		animation: strap-enter-phone 0.2s $ease-in-out-quad;
+
+		&::before {
+			display: none;
+		}
+	}
+
+	.pmxWidgetStrap-actions {
+		@include position(absolute, 0 0 0 auto);
+	}
+
+	.pmxWidgetStrap-cta {
+		@include to-em(margin, $strap-cta-vert-margin $base-spacing-medium, $strap-cta-font-size);
+	}
+
+	.pmxWidgetStrap-nav {
+		display: none;
+	}
+}
+
+@include respond-to(320, max) {
+	.pmxWidgetStrap-branding {
+		display: none;
+	}
+
+	.pmxWidgetStrap-themeName {
+		@include to-em(margin, $strap-title-vert-margin $base-spacing-medium, $strap-title-font-size);
+	}
+}
+
 @keyframes strap-enter {
 	0% {
 		opacity: 0;
@@ -135,5 +175,17 @@
 	100% {
 		opacity: 1;
 		transform: translateY(0) scale(1);
+	}
+}
+
+@keyframes strap-enter-phone {
+	0% {
+		opacity: 0;
+		transform: translateY(20%);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translateY(0);
 	}
 }

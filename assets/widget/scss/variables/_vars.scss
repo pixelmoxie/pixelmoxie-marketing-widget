@@ -24,7 +24,7 @@ $panel-button-font-size:          14;
 $strap-title-font-size:           16;
 $strap-cta-font-size:             14;
 $strap-menu-items-font-size:      14;
-$balloon-base-size:               10;
+$balloon-base-size:               12;
 
 // Z-Index
 // --------------------------------------------------
@@ -102,20 +102,19 @@ $modal-tabs-padding:                ($modal-tabs-height - $modal-tabs-font-size)
 
 // Private vars
 $black:       #000;
-$dark-gray:   #494b4c;
-$fog:         #ccc;
-$green:       #00a66c;
-$hotpink:     #ff6bb5;
-$light-fog:   #f5f5f5;
-$light-gray:  #a4a5a5;
-$medium-fog:  #ccc;
-$medium-gray: #676869;
 $off-black:   #1c1e1f;
+$dark-gray:   #494b4c;
+$medium-gray: #676869;
+$light-gray:  #a4a5a5;
 $print-fog:   #999;
-$seafoam:     #33b787;
-$white:       #fff;
-$white:       #fff;
+$fog:         #ccc;
+$medium-fog:  #e0e0e0;
+$light-fog:   #f5f5f5;
 $whitesmoke:  #f5f5f5;
+$white:       #fff;
+$green:       #00a66c;
+$seafoam:     #33b787;
+$hotpink:     #ff6bb5;
 
 // Strap
 $strap-bg-color-hue:              240;
@@ -129,8 +128,8 @@ $strap-gradient-bottom-color:     hsla($strap-bg-color-hue, $strap-bg-color-sat,
 $strap-text-color:                hsla($strap-text-color-hue, $strap-text-color-sat, 38%, 1);
 $strap-text-color-emphasis:       hsla($strap-text-color-hue, $strap-text-color-sat, 22%, 1);
 
-$strap-cta-gradient-top-color:    hsla(178, 64%, 44%, 1);
-$strap-cta-gradient-bottom-color: hsla(168, 78%, 38%, 1);
+$strap-cta-gradient-top-color:    hsla(168, 56%, 46%, 1);
+$strap-cta-gradient-bottom-color: hsla(158, 56%, 46%, 1);
 $strap-cta-text-color:            hsla($strap-text-color-hue, $strap-text-color-sat, 98%, 1);
 
 $balloon-background-color:        hsla($strap-text-color-hue, $strap-text-color-sat, 34%, 1);
@@ -158,7 +157,7 @@ $tabs-gradient-top-color:         hsla($tabs-bg-color-hue, $tabs-bg-color-sat, 9
 $tabs-gradient-bottom-color:      hsla($tabs-bg-color-hue, $tabs-bg-color-sat, 90%, 1);
 $tabs-text-color:                 hsla($tabs-text-color-hue, $tabs-text-color-sat, 33%, 1);
 $tabs-text-color-emphasis:        hsla($tabs-text-color-hue, $tabs-text-color-sat, 22%, 1);
-$tabs-border-color:               hsla($overlay-bg-color-hue, 18%, 76%, 1);
+$tabs-border-color:               hsla($overlay-bg-color-hue, 18%, 68%, 1);
 $tabs-border-color-enter:         hsla($overlay-bg-color-hue, 18%, 54%, 1);
 $tabs-border-color-active:        hsla($overlay-bg-color-hue, 18%, 33%, 1);
 
@@ -174,7 +173,7 @@ $switch-bg-color:                   $light-fog;
 $switch-bg-color-enter:             darken($switch-bg-color, 5);
 $switch-bg-color-checked:           $seafoam;
 $switch-bg-color-checked-enter:     darken($switch-bg-color-checked, 5);
-$switch-border-color:               $medium-fog;
+$switch-border-color:               $fog;
 $switch-border-color-enter:         darken($switch-border-color, 5);
 $switch-border-color-checked:       $seafoam;
 $switch-border-color-checked-enter: darken($switch-border-color-checked, 5);

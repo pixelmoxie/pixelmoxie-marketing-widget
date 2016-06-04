@@ -295,7 +295,7 @@ class PMXMW.WidgetView extends pmxmwBackbone.View
     #   console.log "#{event.type}: #{val}"
     #   return
 
-    pmxmwUnderscore.delay (=>
-      (@$ '.pmxWidgetStrap-trigger--settings').trigger 'click'
-    ), 500
+    # pmxmwUnderscore.delay (=>
+    #   (@$ '.pmxWidgetStrap-trigger--settings').trigger 'click'
+    # ), 500
     return

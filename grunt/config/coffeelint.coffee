@@ -5,7 +5,7 @@ module.exports = ( grunt, config ) ->
       no_nested_string_interpolation:
         level: 'ignore'
       max_line_length:
-        value: 120
+        value: 160
         level: 'warn'
     files:
       src: [
