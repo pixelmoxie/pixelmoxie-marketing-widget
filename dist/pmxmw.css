@@ -299,6 +299,32 @@ PixelMoxie Widget Strap
 	line-height: 1;
 }
 
+.pmxWidgetStrap-trigger.ripple::before, .pmxWidgetStrap-trigger.ripple::after {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	display: block;
+	margin-top: -33px;
+	margin-left: -33px;
+	width: 66px;
+	height: 66px;
+	border: 5px solid #33b787;
+	border-radius: 100%;
+	background-color: transparent;
+	content: "";
+	-webkit-animation: strap-control-ripple 2s infinite cubic-bezier(0.455, 0.03, 0.515, 0.955);
+	        animation: strap-control-ripple 2s infinite cubic-bezier(0.455, 0.03, 0.515, 0.955);
+	pointer-events: none;
+
+	-webkit-animation-fill-mode: both;
+	        animation-fill-mode: both;
+}
+
+.pmxWidgetStrap-trigger.ripple::after {
+	-webkit-animation-delay: 0.5s;
+	        animation-delay: 0.5s;
+}
+
 .pmxWidgetStrap-menuItem:last-of-type {
 	margin-right: 0.7142857143em;
 }
@@ -390,6 +416,32 @@ PixelMoxie Widget Strap
 		opacity: 1;
 		-webkit-transform: translateY(0);
 		        transform: translateY(0);
+	}
+}
+
+@-webkit-keyframes strap-control-ripple {
+	0% {
+		opacity: 1;
+		-webkit-transform: scale(0);
+		        transform: scale(0);
+	}
+	100% {
+		opacity: 0;
+		-webkit-transform: scale(1);
+		        transform: scale(1);
+	}
+}
+
+@keyframes strap-control-ripple {
+	0% {
+		opacity: 1;
+		-webkit-transform: scale(0);
+		        transform: scale(0);
+	}
+	100% {
+		opacity: 0;
+		-webkit-transform: scale(1);
+		        transform: scale(1);
 	}
 }
 

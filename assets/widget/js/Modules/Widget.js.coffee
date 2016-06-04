@@ -157,7 +157,11 @@ class PMXMW.WidgetView extends pmxmwBackbone.View
     """
     # coffeelint: enable=max_line_length
     @$body.append widgetMarkup
-    @buildSettingsControls data.themes.theme.modal.settings.controls
+    pmxmwUnderscore.defer =>
+      unless sessionStorage.getItem 'pmx-settings-clicked'
+        (@$ '.pmxWidgetStrap-trigger--settings').addClass 'ripple'
+      @buildSettingsControls data.themes.theme.modal.settings.controls
+      return
     return
 
   buildSettingsControls: ( controls ) ->
@@ -240,10 +244,18 @@ class PMXMW.WidgetView extends pmxmwBackbone.View
 
   showModal: ( event ) ->
     event.preventDefault()
-    triggeredIndex = ($ event.target).parent().index()
+    $target = $ event.target
+    triggeredIndex = $target.parent().index()
+
+    if $target.hasClass 'ripple'
+      $target.removeClass 'ripple'
+      storageKey = $target.attr('href').replace(/[^a-zA-Z 0-9\-]/, '') + '-clicked'
+      sessionStorage.setItem storageKey, true
+
     if triggeredIndex >= 0 and @activeIndex isnt triggeredIndex
       @activeIndex = triggeredIndex
       @navigateTo @activeIndex, true
+
     @$el.addClass 'showModal'
     return
 
@@ -253,7 +265,8 @@ class PMXMW.WidgetView extends pmxmwBackbone.View
 
   navigationTriggered: ( event ) ->
     event.preventDefault()
-    triggeredIndex = ($ event.target).parent().index()
+    $target = $ event.target
+    triggeredIndex = $target.parent().index()
     if triggeredIndex >= 0 and @activeIndex isnt triggeredIndex
       @activeIndex = triggeredIndex
       @navigateTo @activeIndex

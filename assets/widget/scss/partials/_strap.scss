@@ -120,6 +120,31 @@
 	@include to-em(font-size, $strap-menu-items-font-size);
 	display: block;
 	line-height: 1;
+
+	// Ripple
+	&.ripple {
+		$ripple-size: $strap-height * 1.5px;
+
+		&::before,
+		&::after {
+			@include size($ripple-size);
+			@include position(absolute, 50% null null 50%);
+			display: block;
+			margin-top: -$ripple-size * 0.5;
+			margin-left: -$ripple-size * 0.5;
+			pointer-events: none;
+			background-color: transparent;
+			border: 5px solid $seafoam;
+			border-radius: 100%;
+			content: "";
+			animation: strap-control-ripple 2s infinite $ease-in-out-quad;
+			animation-fill-mode: both;
+		}
+
+		&::after {
+			animation-delay: 0.5s;
+		}
+	}
 }
 
 .pmxWidgetStrap-menuItem:last-of-type {
@@ -187,5 +212,17 @@
 	100% {
 		opacity: 1;
 		transform: translateY(0);
+	}
+}
+
+@keyframes strap-control-ripple {
+	0% {
+		opacity: 1;
+		transform: scale(0);
+	}
+
+	100% {
+		opacity: 0;
+		transform: scale(1);
 	}
 }
