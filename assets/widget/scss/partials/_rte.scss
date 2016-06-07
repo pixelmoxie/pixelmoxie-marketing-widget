@@ -18,6 +18,11 @@
 		}
 	}
 
+	b,
+	strong {
+		font-weight: 600;
+	}
+
 	:--headings {
 		margin-top: $modal-base-line-height-unitless / strip-unit($modal-h3-font-size) * 1em;
 		margin-bottom: 0;

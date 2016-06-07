@@ -15,8 +15,8 @@ class PMXMW.WidgetView extends pmxmwBackbone.View
     @useCSSTransforms3d = @$html.hasClass 'csstransforms3d'
 
     @baseURL            = window.themeInfo.widgetBaseURL
-    @dataURL            = "#{@baseURL}data.xml"
-    # @dataURL            = "https://cdn.rawgit.com/pixelmoxie/pixelmoxie-marketing-widget/834dedc/dist/data.xml"
+    # @dataURL            = "#{@baseURL}data.xml"
+    @dataURL            = "https://cdn.rawgit.com/pixelmoxie/pixelmoxie-marketing-widget/834dedc/dist/data.xml"
     @cssURL             = "#{@baseURL}pmxmw.css"
     @themeName          = window.themeInfo.name
     @themeVersion       = window.themeInfo.version
@@ -343,7 +343,7 @@ class PMXMW.WidgetView extends pmxmwBackbone.View
     #   console.log "#{event.type}: #{val}"
     #   return
 
-    # pmxmwUnderscore.delay (=>
-    #   (@$ '.pmxWidgetStrap-trigger--settings').trigger 'click'
-    # ), 500
+    pmxmwUnderscore.delay (=>
+      (@$ '.pmxWidgetStrap-trigger--settings').trigger 'click'
+    ), 500
     return

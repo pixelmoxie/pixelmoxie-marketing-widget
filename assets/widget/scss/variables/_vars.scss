@@ -25,6 +25,8 @@ $strap-title-font-size:           16;
 $strap-cta-font-size:             14;
 $strap-menu-items-font-size:      14;
 $controls-font-size:              14;
+$controls-line-height:            18;
+$controls-line-height-unitless:   $controls-line-height / $controls-font-size;
 $balloon-base-size:               12;
 
 // Z-Index
@@ -62,8 +64,8 @@ $global-border-radius:    2px;
 $pill-border-radius:      50px;
 $balloon-arrow-height:    6px;
 $button-height:           32;
-$controls-size:           20;
-$swatches-size:           40;
+$controls-size:           16;
+$swatches-size:           32;
 $swatches-border-width:   3px;
 $swatches-inset-width:    2px;
 

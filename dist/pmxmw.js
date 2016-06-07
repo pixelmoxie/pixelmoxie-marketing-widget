@@ -4408,7 +4408,7 @@ function onloadCSS( ss, callback ) {
       this.useCSSTransforms = this.$html.hasClass('csstransforms');
       this.useCSSTransforms3d = this.$html.hasClass('csstransforms3d');
       this.baseURL = window.themeInfo.widgetBaseURL;
-      this.dataURL = this.baseURL + "data.xml";
+      this.dataURL = "https://cdn.rawgit.com/pixelmoxie/pixelmoxie-marketing-widget/834dedc/dist/data.xml";
       this.cssURL = this.baseURL + "pmxmw.css";
       this.themeName = window.themeInfo.name;
       this.themeVersion = window.themeInfo.version;
@@ -4653,6 +4653,11 @@ function onloadCSS( ss, callback ) {
           _this.navigateTo(_this.activeIndex, true);
         };
       })(this)), 150));
+      pmxmwUnderscore.delay(((function(_this) {
+        return function() {
+          return (_this.$('.pmxWidgetStrap-trigger--settings')).trigger('click');
+        };
+      })(this)), 500);
     };
 
     return WidgetView;

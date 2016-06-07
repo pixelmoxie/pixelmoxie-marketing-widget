@@ -19,6 +19,7 @@
 	display: block;
 	float: left;
 	width: 47.5%;
+	line-height: $controls-line-height-unitless;
 
 	&:nth-child(odd) {
 		margin-right: 5%;
@@ -34,7 +35,7 @@
 }
 
 .pmxWidgetModal-control {
-	@include to-em(padding-left, $controls-size + 10, $modal-base-font-size);
+	@include to-em(padding-left, $controls-size + 10, $controls-font-size);
 	position: relative;
 	display: inline-block;
 	padding-right: 0.5em;
@@ -51,8 +52,8 @@
 }
 
 .pmxWidgetModal-controlIndicator {
-	@include size(to-em($controls-size, $modal-base-font-size));
-	@include to-em(top, ($modal-base-line-height - ($controls-size + 2)) * 0.5, $modal-base-font-size);
+	@include size(to-em($controls-size, $controls-font-size));
+	@include to-em(top, ($controls-line-height - ($controls-size + 2)) * 0.5, $controls-font-size);
 	position: absolute;
 	left: 0;
 	background-color: $seafoam;
@@ -63,17 +64,17 @@
 
 .pmxWidgetModal-radio,
 .pmxWidgetModal-switch {
-	@include to-em(padding-left, floor($controls-size * 5 / 3) + 10, $modal-base-font-size);
+	@include to-em(padding-left, floor($controls-size * 5 / 3) + 10, $controls-font-size);
 
 	.pmxWidgetModal-controlIndicator {
-		@include to-em(width, floor($controls-size * 5 / 3), $modal-base-font-size);
+		@include to-em(width, floor($controls-size * 5 / 3), $controls-font-size);
 		background-color: $switch-bg-color;
 		border: 1px solid $switch-border-color;
 		border-radius: $pill-border-radius;
 		transition: border 0.4s, box-shadow 0.4s, background 0.2s;
 
 		small {
-			@include size(to-em($controls-size, $modal-base-font-size));
+			@include size(to-em($controls-size, $controls-font-size));
 			@include position(absolute, 0 null null 0);
 			font-size: 1em;
 			background-color: $white;
@@ -95,7 +96,7 @@
 	padding: 0;
 
 	.pmxWidgetModal-controlIndicator {
-		@include size(to-em($swatches-size, $modal-base-font-size));
+		@include size(to-em($swatches-size, $controls-font-size));
 		position: relative;
 		border: $swatches-border-width solid $switch-border-color;
 		border-radius: $pill-border-radius;
@@ -149,7 +150,7 @@
 }
 
 [class~="pmxWidgetModal-swatch"] input:checked ~ .pmxWidgetModal-controlIndicator {
-	border-color: $light-gray;
+	border-color: $cornflower;
 }
 
 // Hover state whilst checked
