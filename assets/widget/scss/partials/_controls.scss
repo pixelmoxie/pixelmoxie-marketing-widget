@@ -15,6 +15,7 @@
 
 .pmxWidgetModal-controlGroup {
 	@include clearfix;
+	@include to-em(font-size, $controls-font-size, $modal-base-font-size);
 	display: block;
 	float: left;
 	width: 47.5%;

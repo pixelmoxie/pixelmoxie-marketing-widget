@@ -979,6 +979,7 @@ PixelMoxie Widget Modal
 	display: block;
 	float: left;
 	width: 47.5%;
+	font-size: 0.875em;
 }
 
 .pmxWidgetModal-controlGroup::after {
