@@ -138,7 +138,7 @@
 		<script src="https://code.jquery.com/jquery-1.12.2.min.js"></script>
 		<script>
 			(function() {
-			  var demoURL, isDemo, isLivePreview, marketingScript, marketingURL, themeName, themeVersion;
+			  var demoURL, isDemo, isLivePreview, marketingScript, marketingURL, themeName, themeVersion, widgetBaseURL;
 			
 			  themeName = "Monobloc Theme";
 			
@@ -148,10 +148,13 @@
 			
 			  marketingURL = "http://localhost:8000/pmxmw.js";
 			
+			  widgetBaseURL = "https://cdn.rawgit.com/pixelmoxie/pixelmoxie-marketing-widget/4b8225b/dist/";
+			
 			  window.themeInfo = {
 			    name: themeName,
 			    version: themeVersion,
-			    demoURL: demoURL
+			    demoURL: demoURL,
+			    widgetBaseURL: widgetBaseURL
 			  };
 			
 			  isLivePreview = window.location.href.indexOf('/customize/') >= 0 ? true : false;

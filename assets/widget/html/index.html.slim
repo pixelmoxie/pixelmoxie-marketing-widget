@@ -122,15 +122,17 @@ html
     script src="https://code.jquery.com/jquery-1.12.2.min.js"
 
     coffee:
-      themeName    = "Monobloc Theme"
-      themeVersion = "1.0.0"
-      demoURL      = "http://localhost:8000"
-      marketingURL = "http://localhost:8000/pmxmw.js"
+      themeName     = "Monobloc Theme"
+      themeVersion  = "1.0.0"
+      demoURL       = "http://localhost:8000"
+      marketingURL  = "http://localhost:8000/pmxmw.js"
+      widgetBaseURL = "https://cdn.rawgit.com/pixelmoxie/pixelmoxie-marketing-widget/4b8225b/dist/"
 
       window.themeInfo =
-        name    : themeName
-        version : themeVersion
-        demoURL : demoURL
+        name          : themeName
+        version       : themeVersion
+        demoURL       : demoURL
+        widgetBaseURL : widgetBaseURL
 
       isLivePreview = if (window.location.href.indexOf('/customize/') >= 0) then true else false
       isDemo        = if (window.location.href.indexOf(themeInfo.demoURL) >= 0) then true else false

@@ -14,9 +14,8 @@ class PMXMW.WidgetView extends pmxmwBackbone.View
     @useCSSTransforms   = @$html.hasClass 'csstransforms'
     @useCSSTransforms3d = @$html.hasClass 'csstransforms3d'
 
-    @baseURL            = "http://localhost:8000/"
-    @dataURL            = "https://cdn.rawgit.com/pixelmoxie/pixelmoxie-marketing-widget/bee3fcb/dist/data.xml"
-    # @dataURL            = "#{@baseURL}data.xml"
+    @baseURL            = window.themeInfo.widgetBaseURL
+    @dataURL            = "#{@baseURL}data.xml"
     @cssURL             = "#{@baseURL}pmxmw.css"
     @themeName          = window.themeInfo.name
     @themeVersion       = window.themeInfo.version

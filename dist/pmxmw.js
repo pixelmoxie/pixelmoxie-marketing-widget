@@ -4407,8 +4407,8 @@ function onloadCSS( ss, callback ) {
       this.$body = selectors.get('body');
       this.useCSSTransforms = this.$html.hasClass('csstransforms');
       this.useCSSTransforms3d = this.$html.hasClass('csstransforms3d');
-      this.baseURL = "http://localhost:8000/";
-      this.dataURL = "https://cdn.rawgit.com/pixelmoxie/pixelmoxie-marketing-widget/bee3fcb/dist/data.xml";
+      this.baseURL = window.themeInfo.widgetBaseURL;
+      this.dataURL = this.baseURL + "data.xml";
       this.cssURL = this.baseURL + "pmxmw.css";
       this.themeName = window.themeInfo.name;
       this.themeVersion = window.themeInfo.version;
