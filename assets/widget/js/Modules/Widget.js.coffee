@@ -16,6 +16,7 @@ class PMXMW.WidgetView extends pmxmwBackbone.View
 
     @baseURL            = window.themeInfo.widgetBaseURL
     @dataURL            = "#{@baseURL}data.xml"
+    # @dataURL            = "https://cdn.rawgit.com/pixelmoxie/pixelmoxie-marketing-widget/834dedc/dist/data.xml"
     @cssURL             = "#{@baseURL}pmxmw.css"
     @themeName          = window.themeInfo.name
     @themeVersion       = window.themeInfo.version
@@ -40,6 +41,10 @@ class PMXMW.WidgetView extends pmxmwBackbone.View
       type: 'GET'
       cache: true
       success: ( res, status ) =>
+        if res.error or res.query is undefined
+          console.log "PMXMW: Error loading data."
+          return
+
         if status is "success" or status is "notmodified"
           data = res.query.results.data
           @timeInMs = Date.now()
@@ -89,18 +94,18 @@ class PMXMW.WidgetView extends pmxmwBackbone.View
           <div class="pmxWidgetModal-viewport">
             <div class="pmxWidgetModal-content">
               <div id="pmxw-features" class="pmxWidgetModal-section pmxWidgetModal-featuresSection isActive">
-                <div class="pmxWidgetModal-sectionBody rte">
+                <div class="pmxWidgetModal-sectionBody pmxWidgetModal-rte">
                   #{data.themes.theme.modal.features.description}
                 </div>
               </div>
               <div id="pmxw-support" class="pmxWidgetModal-section pmxWidgetModal-supportSection">
-                <div class="pmxWidgetModal-sectionBody rte">
+                <div class="pmxWidgetModal-sectionBody pmxWidgetModal-rte">
                   #{data.themes.theme.modal.support.description}
                 </div>
               </div>
               #{ if data.themes.theme.modal.settings then """
               <div id="pmxw-settings" class="pmxWidgetModal-section pmxWidgetModal-settingsSection">
-                <div class="pmxWidgetModal-sectionBody rte">
+                <div class="pmxWidgetModal-sectionBody pmxWidgetModal-rte">
                   #{data.themes.theme.modal.settings.description}
                   <div class="pmxWidgetModal-controls"></div>
                 </div>
@@ -277,10 +282,12 @@ class PMXMW.WidgetView extends pmxmwBackbone.View
       @navigateTo @activeIndex, true
 
     @$el.addClass 'showModal'
+    @$body.addClass 'show-marketing-modal'
     return
 
   hideModal: ->
     @$el.removeClass 'showModal'
+    @$body.removeClass 'show-marketing-modal'
     return
 
   navigationTriggered: ( event ) ->

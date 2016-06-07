@@ -1,0 +1,19 @@
+.pmxWidget {
+	all: initial;
+
+	:--headings {
+		font-family: inherit;
+	}
+}
+
+%truncate {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+%typography-base {
+	font-family: $system;
+	font-size: $base-font-size;
+	font-weight: normal;
+}

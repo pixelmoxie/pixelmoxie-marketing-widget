@@ -7,6 +7,7 @@ module.exports = ( grunt, config ) ->
   widget:
     options:
       processors: [
+        # require( 'postcss-autoreset' )({})
         require( 'postcss-initial' )({
           'reset': 'all'
           'replace': true

@@ -50,4 +50,5 @@ module.exports = ( grunt, config ) ->
     tasks: [
       'coffee'
       'concat:scripts'
+      'uglify'
     ]

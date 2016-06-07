@@ -1,4 +1,4 @@
-.rte {
+.pmxWidgetModal-rte {
 	@include to-em(font-size, $modal-base-font-size);
 	padding: $modal-base-line-height-unitless * 1em 5%;
 	line-height: $modal-base-line-height-unitless;
@@ -21,6 +21,7 @@
 	:--headings {
 		margin-top: $modal-base-line-height-unitless / strip-unit($modal-h3-font-size) * 1em;
 		margin-bottom: 0;
+		font-family: inherit;
 		font-size: $modal-h3-font-size;
 		font-weight: 600;
 		line-height: $modal-base-line-height-unitless / strip-unit($modal-h3-font-size);
