@@ -4597,6 +4597,18 @@ function onloadCSS( ss, callback ) {
       this.$body.removeClass('show-marketing-modal');
     };
 
+    WidgetView.prototype.hideStrap = function() {
+      if (!this.$el.hasClass('hideStrap')) {
+        this.$el.addClass('hideStrap');
+      }
+    };
+
+    WidgetView.prototype.showStrap = function() {
+      if (this.$el.hasClass('hideStrap')) {
+        this.$el.removeClass('hideStrap');
+      }
+    };
+
     WidgetView.prototype.navigationTriggered = function(event) {
       var $target, triggeredIndex;
       event.preventDefault();

@@ -290,6 +290,14 @@ class PMXMW.WidgetView extends pmxmwBackbone.View
     @$body.removeClass 'show-marketing-modal'
     return
 
+  hideStrap: ->
+    @$el.addClass 'hideStrap' unless @$el.hasClass 'hideStrap'
+    return
+
+  showStrap: ->
+    @$el.removeClass 'hideStrap' if @$el.hasClass 'hideStrap'
+    return
+
   navigationTriggered: ( event ) ->
     event.preventDefault()
     $target = $ event.target

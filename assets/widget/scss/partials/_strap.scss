@@ -28,7 +28,8 @@
 	transition: opacity 0.2s $ease-in-out-quad 0.6s, transform 0.2s $ease-in-out-quad 0.6s;
 	backface-visibility: hidden;
 
-	.showModal > & {
+	.showModal > &,
+	.hideStrap > & {
 		opacity: 0;
 		transform: translateY(120%) scale(0.9);
 	}
