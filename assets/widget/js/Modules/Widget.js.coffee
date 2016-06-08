@@ -58,8 +58,8 @@ class PMXMW.WidgetView extends pmxmwBackbone.View
   loadCSS: ->
     @stylesheet = loadCSS @cssURL
     onloadCSS @stylesheet, =>
-      if @$el.is ':hidden' then @$el.css { 'display': 'block' }
       pmxmwUnderscore.delay (=>
+        if @$el.is ':hidden' then @$el.css { 'display': 'block' }
         @layout()
         return
       ), 150
@@ -245,6 +245,14 @@ class PMXMW.WidgetView extends pmxmwBackbone.View
     @viewportWidth  = @$viewport.outerWidth()
     @viewportHeight = @$viewport.outerHeight()
 
+    if @viewportWidth is 0 or @viewportHeight is 0
+      @layoutTimeout = setTimeout (=>
+        @layout()
+        return
+      ), 150
+
+    clearTimeout @layoutTimeout
+
     @$content
       .removeAttr 'style'
       .css
@@ -343,7 +351,7 @@ class PMXMW.WidgetView extends pmxmwBackbone.View
     #   console.log "#{event.type}: #{val}"
     #   return
 
-    pmxmwUnderscore.delay (=>
-      (@$ '.pmxWidgetStrap-trigger:first').trigger 'click'
-    ), 500
+    # pmxmwUnderscore.delay (=>
+    #   (@$ '.pmxWidgetStrap-trigger:first').trigger 'click'
+    # ), 500
     return

@@ -24,7 +24,7 @@
 	border-radius: $pill-border-radius;
 	opacity: 1;
 	transform: translateY(0) scale(1);
-	animation: strap-enter 0.2s $ease-in-out-quad;
+	animation: strap-enter 0.2s $ease-in-out-quad 1s both;
 	transition: opacity 0.2s $ease-in-out-quad 0.6s, transform 0.2s $ease-in-out-quad 0.6s;
 	backface-visibility: hidden;
 

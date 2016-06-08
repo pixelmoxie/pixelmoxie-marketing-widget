@@ -4453,12 +4453,12 @@ function onloadCSS( ss, callback ) {
       this.stylesheet = loadCSS(this.cssURL);
       onloadCSS(this.stylesheet, (function(_this) {
         return function() {
-          if (_this.$el.is(':hidden')) {
-            _this.$el.css({
-              'display': 'block'
-            });
-          }
           pmxmwUnderscore.delay((function() {
+            if (_this.$el.is(':hidden')) {
+              _this.$el.css({
+                'display': 'block'
+              });
+            }
             _this.layout();
           }), 150);
           console.log("PMXMW: Stylesheet loaded in " + ((Date.now() - _this.timeInMs) / 1000) + "s.");
@@ -4551,6 +4551,14 @@ function onloadCSS( ss, callback ) {
       this.$viewport.removeAttr('style');
       this.viewportWidth = this.$viewport.outerWidth();
       this.viewportHeight = this.$viewport.outerHeight();
+      if (this.viewportWidth === 0 || this.viewportHeight === 0) {
+        this.layoutTimeout = setTimeout(((function(_this) {
+          return function() {
+            _this.layout();
+          };
+        })(this)), 150);
+      }
+      clearTimeout(this.layoutTimeout);
       this.$content.removeAttr('style').css({
         'position': 'absolute',
         'top': 0,
@@ -4653,11 +4661,6 @@ function onloadCSS( ss, callback ) {
           _this.navigateTo(_this.activeIndex, true);
         };
       })(this)), 150));
-      pmxmwUnderscore.delay(((function(_this) {
-        return function() {
-          return (_this.$('.pmxWidgetStrap-trigger:first')).trigger('click');
-        };
-      })(this)), 500);
     };
 
     return WidgetView;
