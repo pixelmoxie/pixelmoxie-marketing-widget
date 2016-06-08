@@ -109,15 +109,27 @@
 		@include to-em(padding, 0 $button-height * 0.5, $panel-button-font-size);
 		display: inline-block;
 		margin: $modal-base-line-height-unitless * 0.5em 0;
+		font-family: inherit;
 		font-weight: 600;
-		color: $strap-cta-text-color;
 		text-decoration: none;
 		text-shadow: 0 1px 0 rgba($strap-text-color, 0.24), 0 0 0.5em rgba($strap-text-color, 0.24);
+		text-transform: capitalize;
 		cursor: pointer;
-		background: linear-gradient(to bottom, $strap-cta-gradient-top-color, $strap-cta-gradient-bottom-color);
+		border: 0;
 		border-radius: $pill-border-radius;
 		box-shadow: inset 0 0 0 1px rgba($strap-text-color, 0.1);
 		transition: opacity 0.2s;
+
+		&::before,
+		&::after {
+			display: none;
+		}
+
+		&:--anylink,
+		&:--enter {
+			color: $strap-cta-text-color;
+			background: linear-gradient(to bottom, $strap-cta-gradient-top-color, $strap-cta-gradient-bottom-color);
+		}
 
 		&:--enter {
 			opacity: 0.86;

@@ -940,19 +940,32 @@ PixelMoxie Widget Modal
 	margin: 0.6875em 0;
 	padding: 0 1.1428571429em;
 	height: 2.2857142857em;
+	border: 0;
 	border-radius: 50px;
-	background: -webkit-linear-gradient(top, #34b79d, #34b787);
-	background: linear-gradient(to bottom, #34b79d, #34b787);
 	box-shadow: inset 0 0 0 1px rgba(78, 103, 116, 0.1);
-	color: #f9fafb;
 	text-decoration: none;
+	text-transform: capitalize;
 	text-shadow: 0 1px 0 rgba(78, 103, 116, 0.24), 0 0 0.5em rgba(78, 103, 116, 0.24);
 	font-weight: 600;
 	font-size: 0.875em;
+	font-family: inherit;
 	line-height: 2.2857142857em;
 	cursor: pointer;
 	-webkit-transition: opacity 0.2s;
 	transition: opacity 0.2s;
+}
+
+.pmxWidgetModal-rte .button::before, .pmxWidgetModal-rte .button::after {
+	display: none;
+}
+
+.pmxWidgetModal-rte .button:link,
+.pmxWidgetModal-rte .button:visited,
+.pmxWidgetModal-rte .button:hover,
+.pmxWidgetModal-rte .button:focus {
+	background: -webkit-linear-gradient(top, #34b79d, #34b787);
+	background: linear-gradient(to bottom, #34b79d, #34b787);
+	color: #f9fafb;
 }
 
 .pmxWidgetModal-rte .button:hover,

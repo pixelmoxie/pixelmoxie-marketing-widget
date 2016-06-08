@@ -16,7 +16,7 @@ class PMXMW.WidgetView extends pmxmwBackbone.View
 
     @baseURL            = window.themeInfo.widgetBaseURL
     # @dataURL            = "#{@baseURL}data.xml"
-    @dataURL            = "https://cdn.rawgit.com/pixelmoxie/pixelmoxie-marketing-widget/834dedc/dist/data.xml"
+    @dataURL            = "https://cdn.rawgit.com/pixelmoxie/pixelmoxie-marketing-widget/abc0575/dist/data.xml"
     @cssURL             = "#{@baseURL}pmxmw.css"
     @themeName          = window.themeInfo.name
     @themeVersion       = window.themeInfo.version
@@ -344,6 +344,6 @@ class PMXMW.WidgetView extends pmxmwBackbone.View
     #   return
 
     pmxmwUnderscore.delay (=>
-      (@$ '.pmxWidgetStrap-trigger--settings').trigger 'click'
+      (@$ '.pmxWidgetStrap-trigger:first').trigger 'click'
     ), 500
     return
