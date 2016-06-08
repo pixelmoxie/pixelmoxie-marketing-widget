@@ -162,6 +162,43 @@
 
 .pmxWidgetStrap-menuItem:last-of-type {
 	@include to-em(margin-right, $strap-menu-items-side-margin-last - $strap-menu-items-side-margin, $strap-menu-items-font-size);
+
+	.pmxWidgetStrap-trigger {
+		@include to-em(padding, ($strap-menu-items-height - 16) * 0.5, $strap-menu-items-font-size);
+	}
+}
+
+.pmxWidgetStrap-menuItem--settings:last-of-type {
+	$margin: ($strap-height - $strap-settings-height) * 0.5;
+	$padding: ($strap-settings-height - 16) * 0.5;
+	@include to-em(margin-right, $margin * -1, $strap-menu-items-font-size);
+
+	.pmxWidgetStrap-trigger {
+		@include to-em(margin, $margin $margin * 2, $strap-menu-items-font-size);
+		@include to-em(padding, $padding, $strap-menu-items-font-size);
+		cursor: pointer;
+		border-radius: $pill-border-radius;
+		box-shadow: inset 0 0 0 1px rgba($strap-text-color, 0.1);
+		transition: opacity 0.2s;
+
+		&:--anylink,
+		&:--enter {
+			color: $strap-settings-text-color;
+			background: $strap-settings-gradient-bottom-color;
+			background-image: linear-gradient(to bottom, $strap-settings-gradient-top-color, $strap-settings-gradient-bottom-color);
+		}
+
+		&:--enter {
+			opacity: 0.86;
+		}
+
+		&.ripple {
+			&::before,
+			&::after {
+				border-color: $strap-gradient-bottom-color;
+			}
+		}
+	}
 }
 
 // Small handheld styles

@@ -383,6 +383,43 @@ PixelMoxie Widget Strap
 	margin-right: 0.7142857143em;
 }
 
+.pmxWidgetStrap-menuItem:last-of-type .pmxWidgetStrap-trigger {
+	padding: 0.4285714286em;
+}
+
+.pmxWidgetStrap-menuItem--settings:last-of-type {
+	margin-right: -0.2857142857em;
+}
+
+.pmxWidgetStrap-menuItem--settings:last-of-type .pmxWidgetStrap-trigger {
+	margin: 0.2857142857em 0.5714285714em;
+	padding: 0.7142857143em;
+	border-radius: 50px;
+	box-shadow: inset 0 0 0 1px rgba(78, 103, 116, 0.1);
+	cursor: pointer;
+	-webkit-transition: opacity 0.2s;
+	transition: opacity 0.2s;
+}
+
+.pmxWidgetStrap-menuItem--settings:last-of-type .pmxWidgetStrap-trigger:link,
+.pmxWidgetStrap-menuItem--settings:last-of-type .pmxWidgetStrap-trigger:visited,
+.pmxWidgetStrap-menuItem--settings:last-of-type .pmxWidgetStrap-trigger:hover,
+.pmxWidgetStrap-menuItem--settings:last-of-type .pmxWidgetStrap-trigger:focus {
+	background: #33b1ff;
+	background-image: -webkit-linear-gradient(top, #34b79d, #33b1ff);
+	background-image: linear-gradient(to bottom, #34b79d, #33b1ff);
+	color: #f9fafb;
+}
+
+.pmxWidgetStrap-menuItem--settings:last-of-type .pmxWidgetStrap-trigger:hover,
+.pmxWidgetStrap-menuItem--settings:last-of-type .pmxWidgetStrap-trigger:focus {
+	opacity: 0.86;
+}
+
+.pmxWidgetStrap-menuItem--settings:last-of-type .pmxWidgetStrap-trigger.ripple::before, .pmxWidgetStrap-menuItem--settings:last-of-type .pmxWidgetStrap-trigger.ripple::after {
+	border-color: #e1e1ef;
+}
+
 @media (max-width: 39.9375em) {
 	.has-marketing-widget {
 		padding-bottom: 44px;

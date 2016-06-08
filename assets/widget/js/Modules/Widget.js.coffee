@@ -16,7 +16,7 @@ class PMXMW.WidgetView extends pmxmwBackbone.View
     @useCSSTransforms3d = @$html.hasClass 'csstransforms3d'
 
     @baseURL            = window.themeInfo.widgetBaseURL
-    # @dataURL            = "https://cdn.rawgit.com/pixelmoxie/pixelmoxie-marketing-widget/5b28cd8/dist/data.xml"
+    # @dataURL            = "https://cdn.rawgit.com/pixelmoxie/pixelmoxie-marketing-widget/a49c3fe/dist/data.xml"
     @dataURL            = "#{@baseURL}data.xml"
     @cssURL             = "#{@baseURL}pmxmw.css"
     @themeName          = window.themeInfo.name
@@ -152,7 +152,7 @@ class PMXMW.WidgetView extends pmxmwBackbone.View
                 <a class="pmxWidgetStrap-trigger" href="#pmx-support">#{data['support-title']}</a>
               </li>
               #{ if data.themes.theme.modal.settings then """
-              <li class="pmxWidgetStrap-menuItem" data-pmw-balloon="#{data['demo-settings-title']}" data-pmw-balloon-pos="right-edge">
+              <li class="pmxWidgetStrap-menuItem pmxWidgetStrap-menuItem--settings" data-pmw-balloon="#{data['demo-settings-title']}" data-pmw-balloon-pos="right-edge">
                 <a class="pmxWidgetStrap-trigger pmxWidgetStrap-trigger--settings" href="#pmx-settings">
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
                     <path d="M15 4h-2c-.6 0-1 .4-1 1s.4 1 1 1h2c.6 0 1-.4 1-1s-.4-1-1-1zm-6 6H7c-.6 0-1 .4-1 1s.4 1 1 1h2c.6 0 1-.4 1-1s-.4-1-1-1zM3 6H1c-.6 0-1 .4-1 1s.4 1 1 1h2c.6 0 1-.4 1-1s-.4-1-1-1zm11 1c-.6 0-1 .4-1 1v7c0 .6.4 1 1 1s1-.4 1-1V8c0-.6-.4-1-1-1zm0-4c.6 0 1-.4 1-1V1c0-.6-.4-1-1-1s-1 .4-1 1v1c0 .6.4 1 1 1zM8 9c.6 0 1-.4 1-1V1c0-.6-.4-1-1-1S7 .4 7 1v7c0 .6.4 1 1 1zm0 4c-.6 0-1 .4-1 1v1c0 .6.4 1 1 1s1-.4 1-1v-1c0-.6-.4-1-1-1zM2 9c-.6 0-1 .4-1 1v5c0 .6.4 1 1 1s1-.4 1-1v-5c0-.6-.4-1-1-1zm0-4c.6 0 1-.4 1-1V1c0-.6-.4-1-1-1S1 .4 1 1v3c0 .6.4 1 1 1z"></path>

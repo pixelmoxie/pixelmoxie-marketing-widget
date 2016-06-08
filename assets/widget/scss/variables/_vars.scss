@@ -83,6 +83,7 @@ $strap-logo-width:        34;
 $strap-logo-height:       24;
 $strap-menu-items-height: 28;
 $strap-cta-height:        28;
+$strap-settings-height:   36;
 
 $modal-min-width:         320;
 $modal-max-width:         640;
@@ -137,66 +138,70 @@ $hotpink:     #ff6bb5;
 $cornflower:  #09f;
 
 // Strap
-$strap-bg-color-hue:              240;
-$strap-bg-color-sat:              30%;
-$strap-text-color-hue:            200;
-$strap-text-color-sat:            20%;
+$strap-bg-color-hue:   240;
+$strap-bg-color-sat:   30%;
+$strap-text-color-hue: 200;
+$strap-text-color-sat: 20%;
 
-$strap-highlight-color:           hsla($strap-bg-color-hue, $strap-bg-color-sat, 97%, 1);
-$strap-gradient-top-color:        hsla($strap-bg-color-hue, $strap-bg-color-sat, 95%, 1);
-$strap-gradient-bottom-color:     hsla($strap-bg-color-hue, $strap-bg-color-sat, 91%, 1);
-$strap-text-color:                hsla($strap-text-color-hue, $strap-text-color-sat, 38%, 1);
-$strap-text-color-emphasis:       hsla($strap-text-color-hue, $strap-text-color-sat, 22%, 1);
+$strap-highlight-color:                hsla($strap-bg-color-hue, $strap-bg-color-sat, 97%, 1);
+$strap-gradient-top-color:             hsla($strap-bg-color-hue, $strap-bg-color-sat, 95%, 1);
+$strap-gradient-bottom-color:          hsla($strap-bg-color-hue, $strap-bg-color-sat, 91%, 1);
+$strap-text-color:                     hsla($strap-text-color-hue, $strap-text-color-sat, 38%, 1);
+$strap-text-color-emphasis:            hsla($strap-text-color-hue, $strap-text-color-sat, 22%, 1);
 
-$strap-cta-gradient-top-color:    hsla(168, 56%, 46%, 1);
-$strap-cta-gradient-bottom-color: hsla(158, 56%, 46%, 1);
-$strap-cta-text-color:            hsla($strap-text-color-hue, $strap-text-color-sat, 98%, 1);
+$strap-cta-gradient-top-color:         hsla(168, 56%, 46%, 1);
+$strap-cta-gradient-bottom-color:      hsla(158, 56%, 46%, 1);
+$strap-cta-text-color:                 hsla($strap-text-color-hue, $strap-text-color-sat, 98%, 1);
 
-$balloon-background-color:        hsla($strap-text-color-hue, $strap-text-color-sat, 34%, 1);
-$balloon-text-color:              hsla($strap-text-color-hue, $strap-text-color-sat, 98%, 1);
+$strap-settings-gradient-top-color:    hsla(168, 56%, 46%, 1);
+$strap-settings-gradient-bottom-color: hsla(203, 100%, 60%, 1);
+$strap-settings-text-color:            hsla($strap-text-color-hue, $strap-text-color-sat, 98%, 1);
+
+$balloon-background-color:             hsla($strap-text-color-hue, $strap-text-color-sat, 34%, 1);
+$balloon-text-color:                   hsla($strap-text-color-hue, $strap-text-color-sat, 98%, 1);
 
 // Modal
-$overlay-bg-color-hue:            200;
-$overlay-bg-color-sat:            10%;
-$overlay-bg-color-alpha:          0.75;
+$overlay-bg-color-hue:                 200;
+$overlay-bg-color-sat:                 10%;
+$overlay-bg-color-alpha:               0.75;
 
-$tabs-bg-color-hue:               240;
-$tabs-bg-color-sat:               30%;
-$tabs-text-color-hue:             200;
-$tabs-text-color-sat:             20%;
+$tabs-bg-color-hue:                    240;
+$tabs-bg-color-sat:                    30%;
+$tabs-text-color-hue:                  200;
+$tabs-text-color-sat:                  20%;
 
-$panel-text-color-hue:            200;
-$panel-text-color-sat:            20%;
+$panel-text-color-hue:                 200;
+$panel-text-color-sat:                 20%;
 
-$overlay-bg-color:                hsla($overlay-bg-color-hue, $overlay-bg-color-sat, 18%, $overlay-bg-color-alpha);
-$modal-header-bg-color:           hsla($overlay-bg-color-hue, 18%, 33%, 0.86);
-$modal-header-text-color:         white(0.7);
+$overlay-bg-color:                     hsla($overlay-bg-color-hue, $overlay-bg-color-sat, 18%, $overlay-bg-color-alpha);
+$modal-header-bg-color:                hsla($overlay-bg-color-hue, 18%, 33%, 0.86);
+$modal-header-text-color:              white(0.7);
 
-$tabs-highlight-color:            hsla($tabs-bg-color-hue, $tabs-bg-color-sat, 98%, 1);
-$tabs-gradient-top-color:         hsla($tabs-bg-color-hue, $tabs-bg-color-sat, 94%, 1);
-$tabs-gradient-bottom-color:      hsla($tabs-bg-color-hue, $tabs-bg-color-sat, 90%, 1);
-$tabs-text-color:                 hsla($tabs-text-color-hue, $tabs-text-color-sat, 33%, 1);
-$tabs-text-color-emphasis:        hsla($tabs-text-color-hue, $tabs-text-color-sat, 22%, 1);
-$tabs-border-color:               hsla($overlay-bg-color-hue, 18%, 68%, 1);
-$tabs-border-color-enter:         hsla($overlay-bg-color-hue, 18%, 54%, 1);
-$tabs-border-color-active:        hsla($overlay-bg-color-hue, 18%, 33%, 1);
+$tabs-highlight-color:                 hsla($tabs-bg-color-hue, $tabs-bg-color-sat, 98%, 1);
+$tabs-gradient-top-color:              hsla($tabs-bg-color-hue, $tabs-bg-color-sat, 94%, 1);
+$tabs-gradient-bottom-color:           hsla($tabs-bg-color-hue, $tabs-bg-color-sat, 90%, 1);
+$tabs-text-color:                      hsla($tabs-text-color-hue, $tabs-text-color-sat, 33%, 1);
+$tabs-text-color-emphasis:             hsla($tabs-text-color-hue, $tabs-text-color-sat, 22%, 1);
+$tabs-border-color:                    hsla($overlay-bg-color-hue, 18%, 68%, 1);
+$tabs-border-color-enter:              hsla($overlay-bg-color-hue, 18%, 54%, 1);
+$tabs-border-color-active:             hsla($overlay-bg-color-hue, 18%, 33%, 1);
 
-$panel-base-bg-color:             hsla($tabs-bg-color-hue, $tabs-bg-color-sat, 96%, 1);
-$panel-base-text-color:           hsla($panel-text-color-hue, $panel-text-color-sat, 33%, 1);
-$panel-base-text-color-emphasis:  hsla($panel-text-color-hue, $panel-text-color-sat, 22%, 1);
-$panel-headings-color:            hsla($panel-text-color-hue, $panel-text-color-sat, 42%, 1);
-$panel-link-text-color:           darken($panel-base-text-color, 15);
-$panel-link-text-color-enter:     $black;
+$panel-base-bg-color:                  hsla($tabs-bg-color-hue, $tabs-bg-color-sat, 96%, 1);
+$panel-base-text-color:                hsla($panel-text-color-hue, $panel-text-color-sat, 33%, 1);
+$panel-base-text-color-emphasis:       hsla($panel-text-color-hue, $panel-text-color-sat, 22%, 1);
+$panel-headings-color:                 hsla($panel-text-color-hue, $panel-text-color-sat, 42%, 1);
+$panel-link-text-color:                darken($panel-base-text-color, 15);
+$panel-link-text-color-enter:          $black;
 
 // Switches
-$switch-bg-color:                   $light-fog;
-$switch-bg-color-enter:             darken($switch-bg-color, 5);
-$switch-bg-color-checked:           $seafoam;
-$switch-bg-color-checked-enter:     darken($switch-bg-color-checked, 5);
-$switch-border-color:               $fog;
-$switch-border-color-enter:         darken($switch-border-color, 5);
-$switch-border-color-checked:       $seafoam;
-$switch-border-color-checked-enter: darken($switch-border-color-checked, 5);
+$switch-bg-color:                      $light-fog;
+$switch-bg-color-enter:                darken($switch-bg-color, 5);
+$switch-bg-color-checked:              $seafoam;
+$switch-bg-color-checked-enter:        darken($switch-bg-color-checked, 5);
+$switch-border-color:                  $fog;
+$switch-border-color-enter:            darken($switch-border-color, 5);
+$switch-border-color-checked:          $seafoam;
+$switch-border-color-checked-enter:    darken($switch-border-color-checked, 5);
 
 // Miscellaneous
 //------------------------------------------------------------------------------
