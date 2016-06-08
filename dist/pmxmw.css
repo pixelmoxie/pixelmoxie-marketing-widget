@@ -604,17 +604,6 @@ PixelMoxie Widget Modal
 	        transition-delay: 0s;
 }
 
-.pmxWidgetOverlay-close {
-	position: absolute;
-	top: 0;
-	right: 0;
-	width: 36px;
-	height: 36px;
-	color: #fff;
-	opacity: 0.7;
-	cursor: pointer;
-}
-
 .pmxWidgetModal {
 	position: fixed;
 	top: 50%;
@@ -863,6 +852,44 @@ PixelMoxie Widget Modal
 .pmxWidgetModal-footer svg {
 	width: 1.4285714286em;
 	height: 1em;
+}
+
+.pmxWidgetOverlay-close {
+	position: absolute;
+	top: 0;
+	right: -44px;
+	visibility: hidden;
+	width: 44px;
+	height: 44px;
+	color: #fff;
+	opacity: 0;
+	cursor: pointer;
+	-webkit-transition: all 0.2s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+	transition: all 0.2s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+
+	-webkit-backface-visibility: hidden;
+	        backface-visibility: hidden;
+}
+
+.showModal .pmxWidgetOverlay-close {
+	visibility: visible;
+	opacity: 1;
+	-webkit-transition-delay: 0.6s;
+	        transition-delay: 0.6s;
+}
+
+.pmxWidgetOverlay-close svg {
+	margin: 4px;
+	width: 36px;
+	height: 36px;
+	opacity: 0.5;
+	-webkit-transition: opacity 0.2s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+	transition: opacity 0.2s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+}
+
+.pmxWidgetOverlay-close:hover svg,
+.pmxWidgetOverlay-close:focus svg {
+	opacity: 0.7;
 }
 
 .pmxWidgetModal-rte {

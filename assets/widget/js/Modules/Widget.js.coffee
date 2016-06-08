@@ -3,6 +3,7 @@ class PMXMW.WidgetView extends pmxmwBackbone.View
   events:
     'click .pmxWidgetStrap-trigger' : 'showModal'
     'click .pmxWidgetOverlay'       : 'hideModal'
+    'click .pmxWidgetOverlay-close' : 'hideModal'
     'click .pmxWidgetModal-trigger' : 'navigationTriggered'
     'change input'                  : 'demoSettingTriggered'
 
@@ -120,15 +121,14 @@ class PMXMW.WidgetView extends pmxmwBackbone.View
               <span>Made by PixelMoxie</span>
             </a>
           </footer>
-        </div>
+          <div class="pmxWidgetOverlay-close">
+            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36">
+              <path d="M26.1,12l-6,6l6,6L24,26.1l-6-6l-6,6L9.9,24l6-6l-6-6L12,9.9l6,6l6-6L26.1,12z"/>
+            </svg>
+          </div><!-- .pmxWidgetOverlay-close -->
+        </div><!-- .pmxWidgetModal-contentWrap -->
       </div><!-- .pmxWidgetModal -->
-      <div class="pmxWidgetOverlay">
-        <div class="pmxWidgetOverlay-close">
-          <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36">
-            <path d="M26.1,12l-6,6l6,6L24,26.1l-6-6l-6,6L9.9,24l6-6l-6-6L12,9.9l6,6l6-6L26.1,12z"/>
-          </svg>
-        </div>
-      </div><!-- .pmxWidgetOverlay -->
+      <div class="pmxWidgetOverlay"></div><!-- .pmxWidgetOverlay -->
         <div class="pmxWidgetStrap">
           <div class="pmxWidgetStrap-segment pmxWidgetStrap-branding">
             <a class="pmxWidgetStrap-logo" href="http://www.pixelmoxie.net" target="_blank">
