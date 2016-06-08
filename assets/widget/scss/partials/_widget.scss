@@ -12,6 +12,13 @@
 		box-sizing: inherit;
 	}
 
+	&::before {
+		// Never visible - used to check if the styles have been loaded
+		// and applied to the DOM
+		display: none;
+		content: "ready";
+	}
+
 	svg {
 		display: block;
 		max-width: 100%;

@@ -15,7 +15,7 @@ class PMXMW.WidgetView extends pmxmwBackbone.View
     @useCSSTransforms3d = @$html.hasClass 'csstransforms3d'
 
     @baseURL            = window.themeInfo.widgetBaseURL
-    # @dataURL            = "https://cdn.rawgit.com/pixelmoxie/pixelmoxie-marketing-widget/abc0575/dist/data.xml"
+    # @dataURL            = "https://cdn.rawgit.com/pixelmoxie/pixelmoxie-marketing-widget/5b28cd8/dist/data.xml"
     @dataURL            = "#{@baseURL}data.xml"
     @cssURL             = "#{@baseURL}pmxmw.css"
     @themeName          = window.themeInfo.name
@@ -46,31 +46,32 @@ class PMXMW.WidgetView extends pmxmwBackbone.View
           return
 
         if status is "success" or status is "notmodified"
-          data = res.query.results.data
+          @data     = res.query.results.data
           @timeInMs = Date.now()
-          @buildWidget data
-          @setupView()
-          @setupEvents()
           @loadCSS()
         return
     return
 
   loadCSS: ->
     @stylesheet = loadCSS @cssURL
+
     onloadCSS @stylesheet, =>
-      pmxmwUnderscore.delay (=>
-        if @$el.is ':hidden' then @$el.css { 'display': 'block' }
+      console.log "PMXMW: Stylesheet loaded in #{(Date.now() - @timeInMs)}ms."
+      @buildWidget @data
+      @setupView()
+      @setupEvents()
+      @$el.show()
+      pmxmwUnderscore.defer =>
+        @timeInMs = Date.now()
         @layout()
         return
-      ), 150
-      console.log "PMXMW: Stylesheet loaded in #{(Date.now() - @timeInMs) / 1000}s."
       return
     return
 
   buildWidget: ( data ) ->
     # coffeelint: disable=max_line_length
     widgetMarkup = """
-    <div class="pmxWidget" style="display: none;">
+    <div class="pmxWidget" style="display:none;visibility:hidden;">
       <div class="pmxWidgetModal">
         <div class="pmxWidgetModal-contentWrap">
           <header class="pmxWidgetModal-header">
@@ -237,26 +238,38 @@ class PMXMW.WidgetView extends pmxmwBackbone.View
 
   setupView: ->
     @.setElement selectors.get( '.pmxWidget' ).last()
+    @$overlay    = (@$ '.pmxWidgetOverlay')
     @$tabs       = (@$ '.pmxWidgetModal-trigger')
     @$viewport   = (@$ '.pmxWidgetModal-viewport')
     @$content    = (@$ '.pmxWidgetModal-content')
     @$panels     = (@$ '.pmxWidgetModal-section')
     @totalPanels = @$panels.length
-    @layout()
     return
 
-  layout: ->
-    @$viewport.removeAttr 'style'
-    @viewportWidth  = @$viewport.outerWidth()
-    @viewportHeight = @$viewport.outerHeight()
+  isWidgetReady: ->
+    if window.getComputedStyle
+      style = window.getComputedStyle(document.querySelector('.pmxWidget'), '::before').getPropertyValue('content')
+      style = style.replace(/'/g, '').replace(/"/g, '')
+      return style is 'ready'
+    else return false
 
-    if @viewportWidth is 0 or @viewportHeight is 0
+  layout: ->
+    if not @isWidgetReady()
       @layoutTimeout = setTimeout (=>
         @layout()
         return
-      ), 150
+      ), 10
+      return
+    else if not @cssLoaded
+      clearTimeout @layoutTimeout
+      @cssLoaded = true
+      @$el.css 'visibility', 'visible'
+      console.log "PMXMW: Styles applied in #{(Date.now() - @timeInMs)}ms."
 
-    clearTimeout @layoutTimeout
+    @$viewport.removeAttr 'style'
+
+    @viewportWidth  = @$viewport.outerWidth()
+    @viewportHeight = @$viewport.outerHeight()
 
     @$content
       .removeAttr 'style'

@@ -166,6 +166,11 @@ PixelMoxie Widget Wrapper
 	box-sizing: inherit;
 }
 
+.pmxWidget::before {
+	display: none;
+	content: "ready";
+}
+
 .pmxWidget svg {
 	display: block;
 	max-width: 100%;
