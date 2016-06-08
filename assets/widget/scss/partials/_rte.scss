@@ -20,7 +20,7 @@
 
 	b,
 	strong {
-		font-weight: 600;
+		font-weight: $bolder-font-weight;
 	}
 
 	:--headings {
@@ -28,7 +28,7 @@
 		margin-bottom: 0;
 		font-family: inherit;
 		font-size: $modal-h3-font-size;
-		font-weight: 600;
+		font-weight: $bolder-font-weight;
 		line-height: $modal-base-line-height-unitless / strip-unit($modal-h3-font-size);
 		color: $panel-headings-color;
 
@@ -110,7 +110,7 @@
 		display: inline-block;
 		margin: $modal-base-line-height-unitless * 0.5em 0;
 		font-family: inherit;
-		font-weight: 600;
+		font-weight: $bolder-font-weight;
 		text-decoration: none;
 		text-shadow: 0 1px 0 rgba($strap-text-color, 0.24), 0 0 0.5em rgba($strap-text-color, 0.24);
 		text-transform: capitalize;

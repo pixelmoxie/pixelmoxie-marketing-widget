@@ -22,7 +22,7 @@
 		z-index: $z-index-1;
 		padding: 0.6em 0.8em;
 		margin-bottom: 5px + $balloon-arrow-height;
-		font-weight: normal;
+		font-weight: $base-font-weight;
 		line-height: 1;
 		color: $balloon-text-color;
 		white-space: nowrap;

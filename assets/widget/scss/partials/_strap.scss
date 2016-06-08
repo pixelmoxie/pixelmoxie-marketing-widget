@@ -1,5 +1,5 @@
 %strap-links-base {
-	font-weight: 600;
+	font-weight: $bolder-font-weight;
 	text-decoration: none;
 	transition: color 0.2s;
 
@@ -24,7 +24,7 @@
 	border-radius: $pill-border-radius;
 	opacity: 1;
 	transform: translateY(0) scale(1);
-	animation: strap-enter 0.2s $ease-in-out-quad 1s both;
+	animation: strap-enter 0.2s $ease-in-out-quad 1s backwards;
 	transition: opacity 0.2s $ease-in-out-quad 0.6s, transform 0.2s $ease-in-out-quad 0.6s;
 	backface-visibility: hidden;
 
@@ -68,7 +68,7 @@
 		@include to-em(margin, $strap-title-vert-margin $strap-title-right-margin $strap-title-vert-margin $strap-title-left-margin, $strap-title-font-size);
 		@include to-em(font-size, $strap-title-font-size);
 		display: block;
-		font-weight: 600;
+		font-weight: $bolder-font-weight;
 		line-height: 1;
 		color: $strap-text-color;
 	}
@@ -80,7 +80,7 @@
 	@include to-em(padding, $strap-cta-vert-padding $strap-cta-side-padding, $strap-cta-font-size);
 	@include to-em(font-size, $strap-cta-font-size);
 	display: block;
-	font-weight: 600;
+	font-weight: $bolder-font-weight;
 	line-height: 1;
 	text-decoration: none;
 	text-shadow: 0 1px 0 rgba($strap-text-color, 0.24), 0 0 0.5em rgba($strap-text-color, 0.24);

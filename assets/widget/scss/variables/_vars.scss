@@ -1,15 +1,23 @@
 // Global Font Families
 //------------------------------------------------------------------------------
 
-$sans-serif: $helvetica;
-$serif:      $georgia;
-$monospace:  $monospace;
-$system:     -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+$sans-serif:       $helvetica;
+$serif:            $georgia;
+$monospace:        $monospace;
+$source-sans-pro:  "Source Sans Pro", sans-serif;
+$open-sans:        "Open Sans", sans-serif;
+$roboto:           "Roboto", sans-serif;
+$lato:             "Lato", sans-serif;
+$fira-sans:        "Fira Sans", sans-serif;
+$system:           -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+$base-font-family: $source-sans-pro;
 
 // Base Font Sizes
 //------------------------------------------------------------------------------
 
 $base-font-size:                  10px;
+$base-font-weight:                400;
+$bolder-font-weight:              600;
 $rem-base:                        strip-unit($base-font-size);
 $rem-percentage:                  percentage(strip-units($rem-base) / 16);
 $modal-title-font-size:           20;

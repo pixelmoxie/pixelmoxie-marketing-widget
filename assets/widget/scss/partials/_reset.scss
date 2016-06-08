@@ -13,7 +13,7 @@
 }
 
 %typography-base {
-	font-family: $system;
+	font-family: $base-font-family;
 	font-size: $base-font-size;
-	font-weight: normal;
+	font-weight: $base-font-weight;
 }

@@ -39,7 +39,7 @@
 	position: relative;
 	display: inline-block;
 	padding-right: 0.5em;
-	font-weight: 600;
+	font-weight: $bolder-font-weight;
 	cursor: pointer;
 	transition: color 0.2s;
 	user-select: none;

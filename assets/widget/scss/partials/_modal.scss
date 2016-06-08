@@ -72,7 +72,7 @@
 		@include to-em(margin, $modal-title-vert-margin 0, $modal-title-font-size);
 		@include to-em(font-size, $modal-title-font-size);
 		display: block;
-		font-weight: 600;
+		font-weight: $bolder-font-weight;
 		line-height: 1;
 		letter-spacing: 0.0625em;
 		color: $modal-header-text-color;
@@ -134,7 +134,7 @@
 		@include to-em(font-size, $modal-tabs-font-size);
 		position: relative;
 		display: block;
-		font-weight: 600;
+		font-weight: $bolder-font-weight;
 		line-height: 1;
 		text-align: center;
 		text-decoration: none;
