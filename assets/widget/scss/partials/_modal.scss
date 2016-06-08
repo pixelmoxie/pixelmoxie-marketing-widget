@@ -225,8 +225,39 @@
 
 // Modal footer
 .pmxWidgetModal-footer {
+	@extend %typography-base;
 	@include to-em(min-height, 20);
+	@include to-em(font-size, $modal-footer-font-size);
+	@include to-em(padding, 16, $modal-footer-font-size);
+	text-align: center;
 	background-color: $panel-base-bg-color;
 	border-bottom-right-radius: $global-border-radius;
 	border-bottom-left-radius: $global-border-radius;
+
+	a {
+		font-weight: $bolder-font-weight;
+		letter-spacing: -0.03125em;
+		text-decoration: none;
+		text-transform: capitalize;
+		opacity: 0.7;
+
+		&:--anylink,
+		&:--enter {
+			color: inherit;
+		}
+	}
+
+	span {
+		display: inline-block;
+		margin-right: -0.25em;
+		vertical-align: middle;
+
+		&:first-of-type {
+			@include to-em(padding-right, 5, $modal-footer-font-size);
+		}
+	}
+
+	svg {
+		@include size(to-em($modal-logo-width, $modal-footer-font-size) to-em($modal-logo-height, $modal-footer-font-size));
+	}
 }

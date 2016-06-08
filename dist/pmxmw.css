@@ -147,7 +147,7 @@ PixelMoxie Widget Reset
 	white-space: nowrap;
 }
 
-.pmxWidget, .pmxWidgetStrap-segment, .pmxWidgetStrap-menuItem, .pmxWidgetModal, .pmxWidgetModal-tab {
+.pmxWidget, .pmxWidgetStrap-segment, .pmxWidgetStrap-menuItem, .pmxWidgetModal, .pmxWidgetModal-tab, .pmxWidgetModal-footer {
 	font-weight: 400;
 	font-size: 10px;
 	font-family: "Source Sans Pro", sans-serif;
@@ -821,10 +821,43 @@ PixelMoxie Widget Modal
 }
 
 .pmxWidgetModal-footer {
+	padding: 1.1428571429em;
 	min-height: 2em;
 	border-bottom-right-radius: 2px;
 	border-bottom-left-radius: 2px;
 	background-color: #f2f2f8;
+	text-align: center;
+	font-size: 1.4em;
+}
+
+.pmxWidgetModal-footer a {
+	text-decoration: none;
+	text-transform: capitalize;
+	letter-spacing: -0.03125em;
+	font-weight: 600;
+	opacity: 0.7;
+}
+
+.pmxWidgetModal-footer a:link,
+.pmxWidgetModal-footer a:visited,
+.pmxWidgetModal-footer a:hover,
+.pmxWidgetModal-footer a:focus {
+	color: inherit;
+}
+
+.pmxWidgetModal-footer span {
+	display: inline-block;
+	margin-right: -0.25em;
+	vertical-align: middle;
+}
+
+.pmxWidgetModal-footer span:first-of-type {
+	padding-right: 0.3571428571em;
+}
+
+.pmxWidgetModal-footer svg {
+	width: 1.4285714286em;
+	height: 1em;
 }
 
 .pmxWidgetModal-rte {
@@ -958,6 +991,7 @@ PixelMoxie Widget Modal
 	text-decoration: none;
 	text-transform: capitalize;
 	text-shadow: 0 1px 0 rgba(78, 103, 116, 0.24), 0 0 0.5em rgba(78, 103, 116, 0.24);
+	letter-spacing: normal;
 	font-weight: 600;
 	font-size: 0.875em;
 	font-family: inherit;

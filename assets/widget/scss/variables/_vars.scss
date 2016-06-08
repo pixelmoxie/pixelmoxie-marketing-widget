@@ -28,6 +28,7 @@ $modal-base-line-height-unitless: $modal-base-line-height / $modal-base-font-siz
 $modal-h1-font-size:              to-em(floor(modular-scale(2, $modal-base-font-size, 1.125)), $modal-base-font-size);
 $modal-h2-font-size:              to-em(floor(modular-scale(1, $modal-base-font-size, 1.125)), $modal-base-font-size);
 $modal-h3-font-size:              to-em(floor(modular-scale(-1, $modal-base-font-size, 1.125)), $modal-base-font-size);
+$modal-footer-font-size:          14;
 $panel-button-font-size:          14;
 $strap-title-font-size:           16;
 $strap-cta-font-size:             14;
@@ -87,6 +88,8 @@ $modal-min-width:         320;
 $modal-max-width:         640;
 $modal-header-height:     72;
 $modal-tabs-height:       48;
+$modal-logo-width:        20;
+$modal-logo-height:       14;
 $modal-aspect-ratio:      16 / 9;
 
 // Margins and paddings
