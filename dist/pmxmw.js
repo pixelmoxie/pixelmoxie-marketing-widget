@@ -4424,7 +4424,7 @@ function onloadCSS( ss, callback ) {
         this.$body.addClass('has-marketing-widget');
       }
       ajaxQuery = "SELECT features-title, support-title, settings-title, demo-settings-title, themes.theme from xml WHERE url=\"" + this.dataURL + "\" and themes.theme.title=\"" + this.themeName + "\"";
-      ajaxURL = "http://query.yahooapis.com/v1/public/yql?q=" + encodeURIComponent(ajaxQuery) + "&format=json&callback=?";
+      ajaxURL = "https://query.yahooapis.com/v1/public/yql?q=" + encodeURIComponent(ajaxQuery) + "&format=json&callback=?";
       $.ajax({
         url: ajaxURL,
         dataType: 'jsonp',

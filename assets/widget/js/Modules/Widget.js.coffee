@@ -33,7 +33,7 @@ class PMXMW.WidgetView extends pmxmwBackbone.View
 
     # coffeelint: disable=max_line_length
     ajaxQuery = "SELECT features-title, support-title, settings-title, demo-settings-title, themes.theme from xml WHERE url=\"#{@dataURL}\" and themes.theme.title=\"#{@themeName}\""
-    ajaxURL = "http://query.yahooapis.com/v1/public/yql?q=" + encodeURIComponent( ajaxQuery ) + "&format=json&callback=?"
+    ajaxURL   = "https://query.yahooapis.com/v1/public/yql?q=" + encodeURIComponent( ajaxQuery ) + "&format=json&callback=?"
     # coffeelint: enable=max_line_length
 
     $.ajax
