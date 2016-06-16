@@ -141,7 +141,7 @@ class PMXMW.WidgetView extends pmxmwBackbone.View
             <h4 class="pmxWidgetStrap-themeName">#{data.themes.theme.title}</h4>
           </div>
           <div class="pmxWidgetStrap-segment pmxWidgetStrap-actions">
-            <a class="pmxWidgetStrap-cta" href="javascript:;" target="_blank">Buy Now<span class="pmxWidgetStrap-cartIcon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="12" viewBox="0 0 13 12"><path d="M4 1c-.1-.6-.6-1-1.2-1H1C.5 0 0 .4 0 1s.4 1 1 1h1l.8 4.2c.1.5.6.8 1 .8h7.4c.5 0 .9-.3 1-.8l.8-4c.1-.3 0-.6-.2-.8-.2-.3-.5-.4-.8-.4H4z"></path><circle cx="10.5" cy="10.5" r="1.5"></circle><circle cx="4.5" cy="10.5" r="1.5"></circle></svg></span></a>
+            <a class="pmxWidgetStrap-cta" href="#{data.themes.theme['purchase-url']}" target="_blank">Buy Now<span class="pmxWidgetStrap-cartIcon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="12" viewBox="0 0 13 12"><path d="M4 1c-.1-.6-.6-1-1.2-1H1C.5 0 0 .4 0 1s.4 1 1 1h1l.8 4.2c.1.5.6.8 1 .8h7.4c.5 0 .9-.3 1-.8l.8-4c.1-.3 0-.6-.2-.8-.2-.3-.5-.4-.8-.4H4z"></path><circle cx="10.5" cy="10.5" r="1.5"></circle><circle cx="4.5" cy="10.5" r="1.5"></circle></svg></span></a>
           </div>
           <div class="pmxWidgetStrap-segment pmxWidgetStrap-nav">
             <ul class="pmxWidgetStrap-menu">
