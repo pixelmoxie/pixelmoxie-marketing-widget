@@ -1014,6 +1014,7 @@ PixelMoxie Widget Modal
 .pmxWidgetModal-rte li {
 	margin: 0;
 	padding: 0;
+	list-style-type: disc;
 }
 
 .pmxWidgetModal-rte li + li {

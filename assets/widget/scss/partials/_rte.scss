@@ -71,6 +71,7 @@
 	li {
 		padding: 0;
 		margin: 0;
+		list-style-type: disc;
 
 		+ li {
 			margin-top: $modal-base-line-height-unitless * 0.25em;
