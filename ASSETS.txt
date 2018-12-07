@@ -1,7 +1,7 @@
 **Development**
 
-https://rawgit.com/pixelmoxie/pixelmoxie-marketing-widget/master/dist/data.xml
+https://cdn.jsdelivr.net/gh/pixelmoxie/pixelmoxie-marketing-widget/dist/data.xml
 
 **Production**
 
-https://cdn.rawgit.com/pixelmoxie/pixelmoxie-marketing-widget/e99bce3/dist/data.xml
+https://cdn.jsdelivr.net/gh/pixelmoxie/pixelmoxie-marketing-widget@e99bce3/dist/data.xml
